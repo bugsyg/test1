@@ -5,7 +5,7 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 
 const app = express(); 
-var mongo = require("../bin/mongodb")
+var mongo = require("./database")
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, "views"));
 app.engine('.hbs', exphbs({
