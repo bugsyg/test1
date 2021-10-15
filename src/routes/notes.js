@@ -17,7 +17,7 @@ router.post('/notes/new-note', (req,res)=>{
             title
         });
     }else{
-        res.send('ok')      
+        console.log(title);      
     }
     
 })
