@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/notes/add', (req,res)=>{
-    res.render('Notas');
+    res.render('notes/new-note');
 })
 
 router.get('/notes', (req,res)=>{
