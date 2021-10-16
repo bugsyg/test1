@@ -6,7 +6,7 @@ router.get('/notes/add', (req,res)=>{
 })
 
 router.post('/notes/new-note', (req,res)=>{
-    console.log(req.body);
+    console.log('hola');
     res.send('ok');  
 })
 
