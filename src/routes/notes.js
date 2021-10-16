@@ -19,8 +19,7 @@ router.post('/notes/new-note', (req,res)=>{
         });
     }else{
         const newNote = new Note({title})
-        console.log(newNote)
-        res.send('ok')     
+        res.send(newNote)     
     }
     
 })
