@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Note = require("../models/Note")
 
 router.get('/notes/add', (req,res)=>{
     res.render('notes/new-note');
@@ -17,8 +18,9 @@ router.post('/notes/new-note', (req,res)=>{
             title
         });
     }else{
-        res.send('ok')
-        console.log({title});      
+        const newNote = new Note({title})
+        console.log(newNote)
+        res.send('ok')     
     }
     
 })
