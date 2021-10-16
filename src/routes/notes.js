@@ -6,8 +6,21 @@ router.get('/notes/add', (req,res)=>{
 })
 
 router.post('/notes/new-note', (req,res)=>{
-    console.log('hola');
-    res.send('ok');  
+    const {title}=req.body
+    const errors= [];
+    if(!title){
+        errors.push({text: 'escribir titulo'})
+    }
+    if(errors.length>0){
+        res.render('notes/new-note', {
+            errors, 
+            title
+        });
+    }else{
+        res.send('ok')
+        console.log({title});      
+    }
+    
 })
 
 router.get('/notes', (req,res)=>{
