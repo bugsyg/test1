@@ -6,7 +6,7 @@ router.get('/notes/add', (req,res)=>{
     res.render('notes/new-note');
 })
 
-router.post('/notes/new-note', (req,res)=>{
+router.post('/notes/new-note', async (req,res)=>{
     const {title}=req.body
     const errors= [];
     if(!title){
@@ -19,7 +19,8 @@ router.post('/notes/new-note', (req,res)=>{
         });
     }else{
         const newNote = new Note({title})
-        res.send(newNote)     
+        await newNote.save()
+        res.redirect('/notes')     
     }
     
 })
