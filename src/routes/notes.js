@@ -18,13 +18,9 @@ router.post('/notes/new-note', async (req,res)=>{
             title
         });
     }else{
-        try{const newNote = new Note({title})
-        await newNote.save()
-        res.redirect('/notes')}
-        catch (err){
-            next(err)
-        }
-            
+        const newNote = new Note({title})
+        await newNote.save().catch(console.log('ups'))
+        res.redirect('/notes')    
     }
     
 })
