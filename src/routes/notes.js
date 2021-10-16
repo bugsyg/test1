@@ -20,7 +20,7 @@ router.post('/notes/new-note', async (req,res)=>{
     }else{
         const newNote = new Note({title})
         await newNote.save()
-        res.redirect('/notes')     
+        res.redirect('/notes')    
     }
     
 })
