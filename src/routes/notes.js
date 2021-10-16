@@ -25,10 +25,10 @@ router.post('/notes/new-note', async (req,res)=>{
     
 })
 
-router.delete('/notes/delete/:id'), async (req,res) => {
+router.delete('/notes/delete/:id', async (req,res) => {
     await Note.findByIdAndDelete(req.params.id);
     res.redirect('/notes')   
-}
+});
 
 router.get('/notes', async (req,res)=>{
     const notes = await Note.find().lean().sort({date:'desc'});
