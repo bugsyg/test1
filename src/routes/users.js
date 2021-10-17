@@ -38,12 +38,12 @@ router.post('/users/signup', async (req,res)=>{
     } else{
         const emailUser = await User.findOne ({email: email})
         if (emailUser) {
-            res.redirect('users/signup');
+            res.redirect('/users/signup');
         }
         const newUser = new User({name, email, password})
         await newUser.encryptPassword(password);
         await newUser.save()
-        res.redirect('users/signin')
+        res.redirect('/users/signin')
     }
     
 })
