@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const methodOverride = require('method-override')
 const session = require('express-session')
 const passport = require('passport')
+const flash = require('connect-flash')
 
 const app = express(); 
 var mongo = require("./database")
