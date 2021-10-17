@@ -43,11 +43,11 @@ router.post('/users/signup', async (req,res)=>{
         const newUser = new User({name, email, password})
         await newUser.encryptPassword(password);
         await newUser.save()
-        res.redirect('/users/signin')
+        res.redirect('users/signin')
     }
     
 })
-    router.get('users/logout', (req,res)=>{
+    router.get('/users/logout', (req,res)=>{
         req.logout();
         res.redirect('/');
     })
