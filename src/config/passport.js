@@ -14,11 +14,11 @@ passport.use(
      if (!user) {
          return done(null, false, {message: 'No existe ese usuario'})
      } else {
-         const match = await user.password.matchPassword(password);
+         const match = await user.matchPassword(password);
         if (match) {
           return done(null, user);
         } else {
-            return done(null, false, {message: 'La contraseña es '+user.password})
+            return done(null, false, {message: 'La contraseña es '+ user.password + 'Usted puso: ' + password})
         }
      }
  }))
