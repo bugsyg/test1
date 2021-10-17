@@ -3,9 +3,11 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override')
 const session = require('express-session')
+const passport = require('passport')
 
 const app = express(); 
 var mongo = require("./database")
+require('./config/passport')
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, "views"));
 app.engine('.hbs', exphbs({
@@ -24,6 +26,9 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use(require('./routes/index'));
 app.use(require('./routes/notes'));
