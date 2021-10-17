@@ -22,7 +22,7 @@ router.post('/users/signup', (req,res)=>{
         errors.push({text:'La contrseña debe tener 8 caracteres'})
     }
     if (errors.length > 8 ) {
-        res.render('users/signup', {name, email, password, confirm_password})
+        res.render('users/signup', {errors, name, email, password, confirm_password})
     } else{
         res.send('ok');
     }
