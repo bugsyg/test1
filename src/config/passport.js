@@ -1,7 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-const User = require ('../models/User');
+const User = require('../models/User');
 
 passport.use(new LocalStrategy({
  usernameField: 'email'}, async(email, password, done) =>{
@@ -9,7 +9,7 @@ passport.use(new LocalStrategy({
      if (!user) {
          return done(null, false, {message: 'No existe ese usuario'})
      } else {
-         const match= await User.matchPassword(password);
+         const match = await User.comparePassword(password);
          if (match) {
              return done(null, user)
          } else {
