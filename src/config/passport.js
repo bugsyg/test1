@@ -18,7 +18,7 @@ passport.use(
         if (match) {
           return done(null, user);
         } else {
-            return done(null, false, {message: 'La contraseña es '+ user.password + 'Usted puso: ' + password})
+            return done(null, false, {message: 'La contraseña es '+ user.password + ' Usted puso: ' + match})
         }
      }
  }))
