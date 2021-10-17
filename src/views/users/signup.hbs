@@ -2,16 +2,16 @@
     <p>Registrtarse</p>
     <form action="/users/signup" method="POST">
     <div>
-        <input type="text" name="name" placeholder="Nombre">
+        <input type="text" name="name" placeholder="Nombre" value="{{name}}">
     </div>
     <div>
-        <input type="email" name="email" placeholder="mail">
+        <input type="email" name="email" placeholder="mail" value="{{email}}">
     </div>
     <div>
-        <input type="password" name="password" placeholder="contraseña">
+        <input type="password" name="password" placeholder="contraseña" value="{{password}}">
     </div>
     <div>
-        <input type="password" name="confirm_password" placeholder="contraseña">
+        <input type="password" name="confirm_password" placeholder="contraseña" value="{{confirm_password}}">
     </div>
     <button type="submit">Crear Cuenta</button>
     </form>
