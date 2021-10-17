@@ -9,4 +9,8 @@ router.get('/users/signup', (req,res)=>{
     res.render('users/signup');
 })
 
+router.post('/users/signup', (req,res)=>{
+    res.render('ok');
+})
+
 module.exports = router;
