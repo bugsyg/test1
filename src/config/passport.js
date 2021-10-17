@@ -9,7 +9,7 @@ passport.use(new LocalStrategy({
      if (!user) {
          return done(null, false, {message: 'No existe ese usuario'})
      } else {
-         const match = await user.matchPassword(password);
+         const match = await user.comparePassword(password);
          if (match) {
              return done(null, user)
          } else {
