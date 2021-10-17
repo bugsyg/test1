@@ -12,6 +12,9 @@ router.get('/users/signup', (req,res)=>{
 router.post('/users/signup', (req,res)=>{
     const { name, email, password, confirm_password} = req.body;
     const errors= [];
+    if (name.length <= 0 ) {
+        errors.push({text:'Insertar un nombre'})
+    }
     if (password != confirm_password) {
         errors.push({text:'Las Constraseñas no coinciden'})
     }
