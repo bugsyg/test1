@@ -17,6 +17,9 @@ router.post('/users/signup', async (req,res)=>{
     if (name.length <= 0 ) {
         errors.push({text:'Insertar un nombre'})
     }
+    if (email.length <= 10 ) {
+        errors.push({text:'Ingrese un email válido'})
+    }
     if (password != confirm_password) {
         errors.push({text:'Las Constraseñas no coinciden'})
     }
