@@ -15,10 +15,10 @@ passport.use(
          return done(null, false, {message: 'No existe ese usuario'})
      } else {
          const match = await user.matchPassword(password);
-        if (match) {
+        if (user.password == password) {
           return done(null, user);
         } else {
-            return done(null, false, {message: 'La contraseña es '+ user.password + ' Usted puso: ' + match})
+            return done(null, false, {message: 'La contraseña es '+ user.password + ' Usted puso: ' + password})
         }
      }
  }))
