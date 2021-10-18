@@ -37,7 +37,7 @@ router.post('/users/signup', async (req,res)=>{
         res.render('users/signup', {errors, name, email, password, confirm_password})
     } else{
         const emailUser = await User.findOne ({email: email})
-        if (user.email == email) {
+        if (emailUser) {
             res.redirect('/users/signup');
         }
         const newUser = new User({name, email, password})
