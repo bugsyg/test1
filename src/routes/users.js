@@ -38,7 +38,7 @@ router.post('/users/signup', async (req,res)=>{
     } else{
         const emailUser = await User.findOne ({email: email})
         if (emailUser) {
-            res.redirect('/users/signup');
+            errors.push({text:'Ya existe un usuario con ese mail'})
         }else{
         const newUser = new User({name, email, password})
         await newUser.encryptPassword(password);
