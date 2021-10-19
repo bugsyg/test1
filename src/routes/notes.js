@@ -8,7 +8,7 @@ router.get('/notes/add', isAuthenticated, (req,res)=>{
 })
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
-    const {title, fijo}=req.body
+    const {title, fijo, cuando, duracion}=req.body
     const errors= [];
     if(!title){
         errors.push({text: 'escribir titulo'})
@@ -19,7 +19,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const newNote = new Note({title, fijo})
+        const newNote = new Note({title, fijo, cuando, duracion})
         newNote.user = req.user.id;
         await newNote.save()
         res.redirect('/notes')    
