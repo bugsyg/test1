@@ -26,10 +26,10 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
                 duracion=120;
                 }
                 if(parseInt(cuando, 10) < 1000 || parseInt(cuando, 10) > 2200){
-                cuando=1000;
+                cuando="1000";
                 }
                 if(parseInt(cuando, 10) > 1400 && parseInt(cuando, 10) < 1600){
-                cuando=1600;
+                cuando="1600";
                 }
             
             }
@@ -38,7 +38,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
                 duracion=30;
                 }
                 if(parseInt(cuando, 10) < 1400 || parseInt(cuando, 10) > 1800){
-                cuando=1500;
+                cuando="1500";
                 }
             }
             else if(caracter=="Alimentacion"){
@@ -46,13 +46,13 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
                 duracion=30;
                 }
                 if(parseInt(cuando, 10) < 930){
-                cuando=930;
+                cuando="930";
                 }
-                if(parseInt(cuando, 10) > 11 && parseInt(cuando, 10) < 15){
-                cuando=13;
+                if(parseInt(cuando, 10) > 1100 && parseInt(cuando, 10) < 1500){
+                cuando="1300";
                 }
                 if(parseInt(cuando, 10) > 1900){
-                cuando=2030;
+                cuando="2030";
                 }
         }}
         const newNote = new Note({title, fijo, cuando, duracion, limite, caracter})
