@@ -35,7 +35,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             
             }
             else if(caracter=="Ejercicio"){
-                if(parseInt(duracion, 10)>30 && hoy==="No"){
+                if(parseInt(duracion, 10)>30 && limite==="No"){
                 duracion="30";
                 }
                 if(parseInt(cuando, 10) < 1400 || parseInt(cuando, 10) > 1800){
