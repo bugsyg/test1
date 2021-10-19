@@ -55,7 +55,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
                 if(parseInt(cuando, 10) > 1900){
                 cuando="2030";
                 }
-        }} else if (fijo === "Si") {
+        }} if (fijo === "Si") {
             duracion = "30"
         }
         await newNote.save()
