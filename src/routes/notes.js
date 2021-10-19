@@ -8,7 +8,7 @@ router.get('/notes/add', isAuthenticated, (req,res)=>{
 })
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
-    const {title}=req.body
+    const {title, fijo}=req.body
     const errors= [];
     if(!title){
         errors.push({text: 'escribir titulo'})
