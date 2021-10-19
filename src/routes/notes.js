@@ -20,44 +20,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
         });
     }else{
         const newNote = new Note({title, fijo, cuando, duracion, limite, caracter})
-        newNote.user = req.user.id;
-        if (fijo === "No"){
-            if(caracter=="Estudio"){
-                if(parseInt(duracion, 10)>120 && limite==="No"){
-                duracion="120";
-                }
-                if(parseInt(cuando, 10) < 1000 || parseInt(cuando, 10) > 2200){
-                cuando="1000";
-                }
-                if(parseInt(cuando, 10) > 1400 && parseInt(cuando, 10) < 1600){
-                cuando="1600";
-                }
-            
-            }
-            else if(caracter=="Ejercicio"){
-                if(parseInt(duracion, 10)>30 && limite==="No"){
-                duracion="30";
-                }
-                if(parseInt(cuando, 10) < 1400 || parseInt(cuando, 10) > 1800){
-                cuando="1500";
-                }
-            }
-            else if(caracter=="Alimentacion"){
-                if(parseInt(duracion, 10)<30){
-                duracion="30";
-                }
-                if(parseInt(cuando, 10) < 930){
-                cuando="930";
-                }
-                if(parseInt(cuando, 10) > 11 && parseInt(cuando, 10) < 15){
-                cuando="13";
-                }
-                if(parseInt(cuando, 10) > 1900){
-                cuando="2030";
-                }
-        }} if (fijo === "Si") {
-            duracion = "30"
-        }
+        newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
     
