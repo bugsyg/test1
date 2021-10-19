@@ -1,4 +1,5 @@
 <div>
+    <h2>Hola {{user.name}}!</h2>
     {{#each notes}}
     <div>
         <h4>{{title}}</h4>
@@ -11,7 +12,7 @@
     </div>
     {{else}}
     <div>
-        <h2>Hola {{user.username}} !</h2>
+        
         <p>No hay Tareas</p>
         <a href="/notes/add">Crear una</a>
     </div>
