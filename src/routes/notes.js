@@ -19,7 +19,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const newNote = new Note({title})
+        const newNote = new Note({title, fijo})
         newNote.user = req.user.id;
         await newNote.save()
         res.redirect('/notes')    
