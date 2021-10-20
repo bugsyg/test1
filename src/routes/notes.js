@@ -6,7 +6,7 @@ const { isAuthenticated } = require('../helpers/auth')
 router.get('/notes/add', isAuthenticated, (req,res)=>{
     res.render('notes/new-note');
 })
-router.get('/notes/reides', isAuthenticated, (req,res)=>{
+router.get('/notes/reides', isAuthenticated, async (req,res)=>{
     const notes = await Note.find({user: req.user.id}).lean().sort({date:'desc'});
     res.render('notes/reides', { notes })
 })
