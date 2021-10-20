@@ -1,10 +1,10 @@
 <div>
-    
+
     <h2>Hola {{user.name}}!</h2>
     {{#each notes}}
     <div>
         <h4>{{title}}</h4>
-        <h5> A las {{cuando}} durante {{duracion}} minutos </h5>
+        <h5> A las {{Rcuando}} durante {{Rduracion}} minutos </h5>
         
         <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
         <input type="hidden" name="_method" value="DELETE">
