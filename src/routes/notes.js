@@ -20,8 +20,8 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const Rcuando= cuando;
-        const Rduracion= duracion;
+        let Rcuando= cuando;
+        let Rduracion= duracion;
         if (fijo === "No"){
             if(caracter=="Estudio"){
                 if(parseInt(duracion, 10)>120 && limite==="No"){
