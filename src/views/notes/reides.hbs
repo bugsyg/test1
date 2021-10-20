@@ -1,0 +1,15 @@
+<div>
+    <h2>Hola {{user.name}}!</h2>
+    <a href="/notes/notes">Estilo Normal</a>
+    {{#each notes}}
+    <div>
+        <h4>{{title}}</h4>
+        <h5> A las {{Rcuando}} durante {{Rduracion}} minutos </h5><br/>
+    </div>
+    {{else}}
+    <div> 
+        <p>No hay Tareas</p>
+        <a href="/notes/add">Crear una</a>
+    </div>
+    {{/each}}
+</div>
