@@ -11,10 +11,7 @@ a:-webkit-any-link{
     border-bottom: 1px solid orange;
     font-size: 36px;
 };
-
-
-
-#Iniciar{
+a #Iniciar{
     position: absolute;
     right: 100px;
     font-size: 24px;
