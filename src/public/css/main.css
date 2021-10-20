@@ -1,12 +1,15 @@
 body{
-    background-color: #100e19;;
+    background-color: #100e19;
     color: white;
 }
 a:-webkit-any-link{
     text-decoration: none;
     color: white;
 }
-
+button{
+    background-color: #100e19;
+    color: white;
+}
 #nav{
     border-bottom: 1px solid orange;
     font-size: 36px;
@@ -17,7 +20,6 @@ a:-webkit-any-link{
     font-size: 24px;
     top: 12px;
 }
-
 #Registrarse, #Cerrar{
     position: absolute;
     right: 10px;
