@@ -19,9 +19,11 @@ a:-webkit-any-link{
 #Iniciar{
     position: absolute;
     right: 100px;
+    font-size: 24px;
 }
 
 #Registrarse{
     position: absolute;
     right: 10px;
+    font-size: 24px;
 }
