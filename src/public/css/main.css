@@ -1,6 +1,7 @@
 body{
     background-color: #100e19;
     color: white;
+    font-family: 'Titillium Web', sans-serif;
 }
 a:-webkit-any-link{
     text-decoration: none;
