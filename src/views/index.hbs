@@ -1,6 +1,7 @@
 <div id="Reides">
 <h1>Reides beta</h1>
-{{#if !user}}
+{{#if user}}
+{{else}}
 <div>
     <form action="/users/signin">
     <input type="submit" value="Iniciar Sesión" />
