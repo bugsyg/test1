@@ -20,39 +20,41 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
+        const Rcuando= cuando;
+        const Rduracion= duracion;
         if (fijo === "No"){
             if(caracter=="Estudio"){
                 if(parseInt(duracion, 10)>120 && limite==="No"){
-                    const Rduracion="120";
+                    Rduracion="120";
                 }
                 if(parseInt(cuando, 10) < 1000 || parseInt(cuando, 10) > 2200){
-                    const Rcuando="1000";
+                    Rcuando="1000";
                 }
                 if(parseInt(cuando, 10) > 1400 && parseInt(cuando, 10) < 1600){
-                    const Rcuando="1600";
+                    Rcuando="1600";
                 }
             
             }
             else if(caracter=="Ejercicio"){
                 if(parseInt(duracion, 10)>30 && limite==="No"){
-                    const Rduracion="30";
+                    Rduracion="30";
                 }
                 if(parseInt(cuando, 10) < 1400 || parseInt(cuando, 10) > 1800){
-                    const Rcuando="1500";
+                    Rcuando="1500";
                 }
             }
             else if(caracter=="Alimentacion"){
                 if(parseInt(duracion, 10)<30){
-                    const Rduracion="30";
+                    Rduracion="30";
                 }
                 if(parseInt(cuando, 10) < 930){
-                    const Rcuando="930";
+                    Rcuando="930";
                 }
                 if(parseInt(cuando, 10) > 1100 && parseInt(cuando, 10) < 1500){
-                    const Rcuando="1300";
+                    Rcuando="1300";
                 }
                 if(parseInt(cuando, 10) > 1900){
-                    const Rcuando="2030";
+                    Rcuando="2030";
                 }
         }}
         const newNote = new Note({title, fijo, cuando, duracion, limite, caracter, Rcuando, Rduracion})
