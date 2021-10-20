@@ -12,18 +12,18 @@ a:-webkit-any-link{
     font-size: 36px;
 };
 
-#Reides{
-    font-size: 24px;
-}
+
 
 #Iniciar{
     position: absolute;
     right: 100px;
     font-size: 24px;
+    top: 12px;
 }
 
-#Registrarse{
+#Registrarse, #Cerrar{
     position: absolute;
     right: 10px;
     font-size: 24px;
+    top: 12px;
 }
