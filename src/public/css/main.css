@@ -8,10 +8,19 @@ a:-webkit-any-link{
 }
 
 #nav{
-    border-bottom:
-    linear-gradient(
-      to bottom, 
-      red, 
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
+    border-bottom: 1px solid orange;
 };
+
+#Reides{
+    font-size: 24px;
+}
+
+#Iniciar{
+    position: absolute;
+    right: 100px;
+}
+
+#Registrarse{
+    position: absolute;
+    right: 10px;
+}
