@@ -13,7 +13,7 @@ button{
     font-size: 24px;
 }
 #nav{
-    border-bottom: 1px solid orange;
+    border-bottom: 1px solid #FF914D;
     font-size: 36px;
 }
 #Iniciar{
@@ -52,3 +52,7 @@ button{
 ul {
     list-style-type: none;
   }
+
+ #sesion{
+     margin: 0%;
+ } 
