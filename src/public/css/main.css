@@ -49,3 +49,6 @@ button{
     align-content: stretch;
     justify-content: space-evenly;
 }
+ul {
+    list-style-type: none;
+  }
