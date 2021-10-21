@@ -40,3 +40,12 @@ button{
     font-size: 24px;
     top: 12px;
 }
+#Tareas{
+    display: flex;
+    position: relative;
+    left: 50%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+}
