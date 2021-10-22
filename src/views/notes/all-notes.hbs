@@ -2,6 +2,10 @@
 
     <h2>Hola {{user.name}}!</h2>
     <a href="/notes/reides">Estilo Reides</a>
+    <form action="/notes/new-note" method="POST">
+    <input type="text" name="title" placeholder="Escribe Aquí tu Tarea"/>
+    <button type="submit">Agregar Tarea</button>
+    </form>
     {{#each notes}}
     <ul id="Tareas">
         <li>

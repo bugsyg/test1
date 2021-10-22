@@ -49,6 +49,8 @@ button{
     flex-wrap: wrap;
     align-content: stretch;
     justify-content: space-evenly;
+    font-size: 24px;
+    height: 60px;
 }
 ul{
     list-style-type: none;
@@ -60,8 +62,8 @@ ul{
 #eliminar{
     border: none;
     position: relative;
-    right: 50px;
-    top: -50px;
+    right: 71px;
+    top: -71px;
     cursor: pointer;
     font-size: 31px;
     color: darkgrey;
