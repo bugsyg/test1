@@ -49,7 +49,7 @@ button{
     flex-wrap: wrap;
     align-content: stretch;
     justify-content: space-evenly;
-    font-size: 24px;
+    font-size: 21px;
     height: 60px;
 }
 ul{
@@ -63,8 +63,31 @@ ul{
     border: none;
     position: relative;
     right: 71px;
-    top: -71px;
+    top: -61px;
     cursor: pointer;
     font-size: 31px;
     color: darkgrey;
+}
+#HOY{
+    font-size: 60px;
+    margin: inherit;
+    position: relative;
+    left: 45%;
+}
+#nueva{
+    margin-bottom: 75px;
+    position: relative;
+    left: 42%;
+}
+#input{
+    background-color: #100e19;
+    border: none;
+    font-size: 24px;
+    outline: none;
+    font-family: 'Titillium Web';
+    color: white;
+}
+#submit{
+    position: relative;
+    left: 5%;
 }
