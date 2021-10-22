@@ -94,11 +94,3 @@ ul{
     border: none;
     font-family: 'Titillium Web';
 }
-#linea{
-    fill:none;
-    stroke: url(#orange-topink);
-}
-#container{
-    width:30%; 
-    height: 20%;
-}
