@@ -52,6 +52,7 @@ button{
     justify-content: space-evenly;
     font-size: 21px;
     height: 60px;
+    margin: inherit;
 }
 ul{
     list-style-type: none;
@@ -93,4 +94,5 @@ ul{
     left: 5%;
     border: none;
     font-family: 'Titillium Web';
+    cursor: pointer;
 }
