@@ -96,5 +96,9 @@ ul{
 }
 #linea{
     fill:none;
-  stroke: url(#orange-topink);
+    stroke: url(#orange-topink);
+}
+#container{
+    width:30%; 
+    height: 20%;
 }
