@@ -20,8 +20,8 @@ button{
 }
 #Iniciar{
     position: absolute;
-    right: 150px;
-    font-size: 24px;
+    right: 15%;
+    font-size: 63%;
     top: 12px;
 }
 #Tarea{
@@ -38,8 +38,8 @@ button{
 }
 #Registrarse, #Cerrar{
     position: absolute;
-    right: 10px;
-    font-size: 24px;
+    right: 2%;
+    font-size: 63%;
     top: 12px;
 }
 #Tareas{
@@ -104,7 +104,7 @@ ul{
 #botonsignin{
     position: relative;
     left: 35%;
-    font-size: 40px;
+    font-size: 32px;
     background-color: #100e19;
     color: #FF914D;
     cursor: pointer;
@@ -112,11 +112,11 @@ ul{
 }
 #botonsignup{
     position: relative;
-    left: 55%;
-    font-size: 40px;
+    left: 65%;
+    font-size: 32px;
     background-color: #100e19;
     color: #FF914D;
     cursor: pointer;
     border: none;
-    top: -45px;
+    top: -38px;
 }
