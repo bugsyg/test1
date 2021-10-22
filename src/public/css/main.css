@@ -2,6 +2,7 @@ body{
     background-color: #100e19;
     color: white;
     font-family: 'Titillium Web', sans-serif;
+    overflow-x: hidden;
 }
 a:-webkit-any-link{
     text-decoration: none;
@@ -49,10 +50,19 @@ button{
     align-content: stretch;
     justify-content: space-evenly;
 }
-ul {
+ul{
     list-style-type: none;
-  }
+}
 
- #sesion{
+#sesion{
      margin: 0%;
- } 
+} 
+#eliminar{
+    border: none;
+    position: relative;
+    right: 50px;
+    top: -50px;
+    cursor: pointer;
+    font-size: 31px;
+    color: darkgrey;
+}
