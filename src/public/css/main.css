@@ -16,6 +16,7 @@ button{
 #nav{
     border-bottom: 1px solid #FF914D;
     font-size: 36px;
+    height: 60px;
 }
 #Iniciar{
     position: absolute;
@@ -90,4 +91,10 @@ ul{
 #submit{
     position: relative;
     left: 5%;
+    border: none;
+    font-family: 'Titillium Web';
+}
+#linea{
+    fill:none;
+  stroke: url(#orange-topink);
 }

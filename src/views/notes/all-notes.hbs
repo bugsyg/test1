@@ -1,11 +1,43 @@
 <div>
-
+    <div class="container" id="container">
     <h2 id="HOY">HOY</h2>
     <a href="/notes/reides">Estilo Reides</a>
+    <div id="linea">
+  
+        <svg width="100%" height="auto" viewBox="0 0 100 100" preserveAspectRatio="none"> 
+        <defs>
+          <linearGradient id="orange-topink" x1="0" x2="0" y1="0" y2="1">
+
+          <stop offset="50%" stopColor="#ff8a00"/>
+          <stop offset="100%" stopColor="#DA1860"/>
+          
+             
+          </linearGradient>
+        </defs>    
+        <path d="
+          M 100, 5
+          L 65, 5
+          Q 60, 5
+            60, 10
+          L 60, 15
+          Q 60, 20
+            55, 20
+          L -10, 20
+          Q -15, 20
+            -15, 16
+          L -15, 16
+          Q -15, 12
+            -10, 12
+          L 30, 12
+    "></path> </svg>
+  
+     
+      </div>
     <form action="/notes/new-note" method="POST" id="nueva">
     <input type="text" id="input" name="title" placeholder="Escribe Aquí tu Tarea"/>
     <button type="submit" id="submit">Agregar Tarea</button>
     </form>
+    </div>
     {{#each notes}}
     <ul id="Tareas">
         <li>
