@@ -45,7 +45,7 @@ button{
 #Tareas{
     display: flex;
     position: relative;
-    left: 50%;
+    left: 45%;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: stretch;
@@ -95,4 +95,28 @@ ul{
     border: none;
     font-family: 'Titillium Web';
     cursor: pointer;
+}
+#h1{
+    font-size: 72px;
+    position: relative;
+    left: 40%;
+}
+#botonsignin{
+    position: relative;
+    left: 35%;
+    font-size: 40px;
+    background-color: #100e19;
+    color: #FF914D;
+    cursor: pointer;
+    border: none;
+}
+#botonsignup{
+    position: relative;
+    left: 55%;
+    font-size: 40px;
+    background-color: #100e19;
+    color: #FF914D;
+    cursor: pointer;
+    border: none;
+    top: -45px;
 }
