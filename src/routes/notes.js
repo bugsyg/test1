@@ -39,6 +39,7 @@ router.get('/notes', isAuthenticated, async (req,res)=>{
     res.render('notes/all-notes', { notes })
 })
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
+    const date = req.user.date;
     const hoy = date;
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime()) - 1000 * 86400 * 1, $lt:(hoy.getTime() + 1000 * 86300 * 1)}}).lean().sort({date:'desc'});
     res.render('notes/hoy', { notes })
