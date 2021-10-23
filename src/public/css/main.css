@@ -12,6 +12,7 @@ button{
     background-color: #100e19;
     color: white;
     font-size: 24px;
+    width: 150%;
 }
 #nav{
     border-bottom: 1px solid #FF914D;
