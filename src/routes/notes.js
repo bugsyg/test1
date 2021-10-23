@@ -8,7 +8,7 @@ router.get('/notes/add', isAuthenticated, (req,res)=>{
 })
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
-    const {title, fijo, cuando, duracion, limite, caracter, dia}=req.body
+    const {title, fijo, cuando, duracion, limite, caracter, dia, date}=req.body
     const errors= [];
 
     if(!title){
@@ -20,7 +20,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const newNote = new Note({title, fijo, cuando, duracion, limite, caracter, dia})
+        const newNote = new Note({title, fijo, cuando, duracion, limite, caracter, dia, date})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
@@ -39,12 +39,12 @@ router.get('/notes', isAuthenticated, async (req,res)=>{
     res.render('notes/all-notes', { notes })
 })
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
-    const hoy = new Date(Date.now)
+    const hoy = date;
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime()) - 1000 * 86400 * 1, $lt:(hoy.getTime() + 1000 * 86300 * 1)}}).lean().sort({date:'desc'});
     res.render('notes/hoy', { notes })
 })
 router.get('/notes/manana', isAuthenticated, async (req,res)=>{
-    const hoy = new Date(Date.now)
+    const hoy = date;
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime() + 1000), $lt:(hoy.getTime() + 1000 * 86400 * 2)}}).lean().sort({date:'desc'});
     res.render('notes/esta-semana', { notes })
 })
