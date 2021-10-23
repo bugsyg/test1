@@ -8,7 +8,7 @@ router.get('/notes/add', isAuthenticated, (req,res)=>{
 })
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
-    const {title, fijo, cuando, duracion, limite, caracter}=req.body
+    const {title, fijo, cuando, duracion, limite, caracter, dia}=req.body
     const errors= [];
 
     if(!title){
@@ -20,44 +20,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        let Rcuando= cuando;
-        let Rduracion= duracion;
-        if (fijo === "No"){
-            if(caracter=="Estudio"){
-                if(parseInt(duracion, 10)>120 && limite==="No"){
-                    Rduracion="120";
-                }
-                if(parseInt(cuando, 10) < 1000 || parseInt(cuando, 10) > 2200){
-                    Rcuando="1000";
-                }
-                if(parseInt(cuando, 10) > 1400 && parseInt(cuando, 10) < 1600){
-                    Rcuando="1600";
-                }
-            
-            }
-            else if(caracter=="Ejercicio"){
-                if(parseInt(duracion, 10)>30 && limite==="No"){
-                    Rduracion="30";
-                }
-                if(parseInt(cuando, 10) < 1400 || parseInt(cuando, 10) > 1800){
-                    Rcuando="1500";
-                }
-            }
-            else if(caracter=="Alimentacion"){
-                if(parseInt(duracion, 10)<30){
-                    Rduracion="30";
-                }
-                if(parseInt(cuando, 10) < 930){
-                    Rcuando="930";
-                }
-                if(parseInt(cuando, 10) > 1100 && parseInt(cuando, 10) < 1500){
-                    Rcuando="1300";
-                }
-                if(parseInt(cuando, 10) > 1900){
-                    Rcuando="2030";
-                }
-        }}
-        const newNote = new Note({title, fijo, cuando, duracion, limite, caracter, Rcuando, Rduracion})
+        const newNote = new Note({title, fijo, cuando, duracion, limite, caracter, dia})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
