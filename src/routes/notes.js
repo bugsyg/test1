@@ -34,8 +34,8 @@ router.delete('/notes/delete/:id', isAuthenticated, async (req,res) => {
 });
 
 router.get('/notes', isAuthenticated, async (req,res)=>{
-    const hoy = new Date("2020-10-23T00:00:00.000+00:00")
-    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime() + 1000 * 86400 * 3)}}).lean().sort({date:'desc'});
+    const hoy = new Date("2021-10-23T00:00:00.000+00:00")
+    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime() + 1000 * 86400 * 1)}}).lean().sort({date:'desc'});
     res.render('notes/all-notes', { notes })
 })
 
