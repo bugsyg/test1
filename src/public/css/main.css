@@ -12,7 +12,6 @@ button{
     background-color: #100e19;
     color: white;
     font-size: 24px;
-    width: 150%;
 }
 #nav{
     border-bottom: 1px solid #FF914D;
@@ -21,8 +20,8 @@ button{
 }
 #Iniciar{
     position: absolute;
-    right: 15%;
-    font-size: 63%;
+    right: 150px;
+    font-size: 24px;
     top: 12px;
 }
 #Tarea{
@@ -39,8 +38,8 @@ button{
 }
 #Registrarse, #Cerrar{
     position: absolute;
-    right: 2%;
-    font-size: 63%;
+    right: 10px;
+    font-size: 24px;
     top: 12px;
 }
 #Tareas{
@@ -105,7 +104,7 @@ ul{
 #botonsignin{
     position: relative;
     left: 35%;
-    font-size: 32px;
+    font-size: 40px;
     background-color: #100e19;
     color: #FF914D;
     cursor: pointer;
@@ -113,11 +112,11 @@ ul{
 }
 #botonsignup{
     position: relative;
-    left: 65%;
-    font-size: 32px;
+    left: 55%;
+    font-size: 40px;
     background-color: #100e19;
     color: #FF914D;
     cursor: pointer;
     border: none;
-    top: -38px;
+    top: -45px;
 }
