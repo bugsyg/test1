@@ -4,7 +4,7 @@ const Note = require("../models/Note")
 const { isAuthenticated } = require('../helpers/auth')
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
-    const {title, fijo, cuando, duracion, limite, caracter, dia, date}=req.body
+    const {title, dia, date}=req.body
     const errors= [];
 
     if(!title){
@@ -16,14 +16,14 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const newNote = new Note({title, fijo, cuando, duracion, limite, caracter, dia, date})
+        const newNote = new Note({title, dia, date})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
     }
 })
 router.post('/notes/new-note/cualquier', isAuthenticated, async (req,res)=>{
-    const {title, fijo, cuando, duracion, limite, caracter, date}=req.body
+    const {title, date}=req.body
     const errors= [];
 
     if(!title){
@@ -35,14 +35,14 @@ router.post('/notes/new-note/cualquier', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const newNote = new Note({title, fijo, cuando, duracion, limite, caracter, date, dia: null})
+        const newNote = new Note({title, date, dia: null})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes/cualquier')    
     }
 })
 router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
-    const {title, fijo, cuando, duracion, limite, caracter, date}=req.body
+    const {title, date}=req.body
     const errors= [];
 
     if(!title){
@@ -54,15 +54,15 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const hoy = new Date("2021-10-25T00:00:00.000+00:00")
-        const newNote = new Note({title, fijo, cuando, duracion, limite, caracter, date, dia: hoy})
+        var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
+        const newNote = new Note({title, date, dia: hoy})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes/hoy')    
     }
 })
 router.post('/notes/new-note/semana', isAuthenticated, async (req,res)=>{
-    const {title, fijo, cuando, duracion, limite, caracter, date}=req.body
+    const {title, date}=req.body
     const errors= [];
 
     if(!title){
@@ -74,8 +74,8 @@ router.post('/notes/new-note/semana', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const hoy = new Date("2021-10-25T00:00:00.000+00:00")
-        const newNote = new Note({title, fijo, cuando, duracion, limite, caracter, date, dia: hoy.getTime() + 1000 * 86400 * 7})
+        var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
+        const newNote = new Note({title, date, dia: hoy.getTime() + 1000 * 86400 * 7})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes/semana')    
@@ -92,17 +92,17 @@ router.get('/notes', isAuthenticated, async (req,res)=>{
     res.render('notes/all-notes', { notes })
 })
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
-    const hoy = new Date("2021-10-25T00:00:00.000+00:00")
+    var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime()) - 1000 * 86400 * 1, $lt:(hoy.getTime() + 1000 * 86300 * 1)}}).lean().sort({date:'desc'});
     res.render('notes/hoy', { notes })
 })
 router.get('/notes/semana', isAuthenticated, async (req,res)=>{
-    const hoy = new Date("2021-10-25T00:00:00.000+00:00")
+    var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime() + 1000), $lt:(hoy.getTime() + 1000 * 86400 * 8)}}).lean().sort({date:'desc'});
     res.render('notes/esta-semana', { notes })
 })
 router.get('/notes/cualquier', isAuthenticated, async (req,res)=>{
-    const hoy = new Date("2021-10-25T00:00:00.000+00:00")
+    var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     const notes = await Note.find({user: req.user.id, dia: null}).lean().sort({date:'desc'});
     res.render('notes/sin-fecha', { notes })
 })
