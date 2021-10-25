@@ -77,7 +77,7 @@ router.post('/notes/new-note/semana', isAuthenticated, async (req,res)=>{
     }else{
         var d = new Date();
         var semana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
-        const newNote = new Note({title, date, dia: new Date(semana).getTime()+ 1000 * 86300 * 1});
+        const newNote = new Note({title, date, dia: new Date(semana).getTime()+ 1000 * 86400 * 7});
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes/semana')    
@@ -102,7 +102,7 @@ router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
 })
 router.get('/notes/semana', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
-    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy).getTime()+1, $lt:new Date(hoy).getTime()+ 1000 * 86400 * 7}}).lean().sort({date:'desc'});
+    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy).getTime()+1, $lt:new Date(hoy).getTime()+ 1000 * 86401 * 7}}).lean().sort({date:'desc'});
     res.render('notes/esta-semana', { notes })
 })
 router.get('/notes/cualquier', isAuthenticated, async (req,res)=>{
