@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Note = require("../models/Note") 
 const { isAuthenticated } = require('../helpers/auth')
+const moment= require('moment') 
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     const {title, dia, date}=req.body
