@@ -1,5 +1,4 @@
-<div>
-   
+<div class="row">
     <h2 id="HOY">INBOX</h2>
     <form action="/notes/new-note" method="POST" id="nueva">
     <input type="text" id="input" name="title" placeholder="Escribe Aquí tu Tarea"/>
@@ -11,15 +10,21 @@
     <a href="/notes/semana">ESTA SEMANA</a>
     <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
     {{#each notes}}
-    <ul id="Tareas">
-        <li>
-                <h4>{{title}}</h4>
-            <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-                <button type="submit" id="eliminar">o</button>
-            </form>
-        </li>
-    </ul>
+     <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title d-flex justify-content-between align-items-center">
+          {{ title }} <a href="/notes/edit/{{_id}}"><i class="fas fa-edit"></i></a>
+        </h4>
+        <p>{{ description }} </p>
+        <!-- DELETE REQUEST -->
+        <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="_method" value="Eliminar">
+          <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+        </form>
+      </div>
+    </div>
+  </div>
     {{else}}
     <div>
         <p>No hay Tareas</p>
