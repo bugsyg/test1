@@ -75,8 +75,10 @@ router.post('/notes/new-note/semana', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
-        const newNote = new Note({title, date, dia: hoy.getTime() + 1000 * 86400 * 7})
+        var d = new Date();
+        d.setDate(reqDate.getDate() + 7);
+        var semana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
+        const newNote = new Note({title, date, dia: semana});
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes/semana')    
@@ -94,16 +96,21 @@ router.get('/notes', isAuthenticated, async (req,res)=>{
 })
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
-    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime()) - 1000 * 86400 * 1, $lt:(hoy.getTime() + 1000 * 86300 * 1)}}).lean().sort({date:'desc'});
+    var d = new Date();
+    d.setDate(reqDate.getDate() + 1);
+    var manana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
+    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy), $lt:(new Date(manana))}}).lean().sort({date:'desc'});
     res.render('notes/hoy', { notes })
 })
 router.get('/notes/semana', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
-    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime() + 1000), $lt:(hoy.getTime() + 1000 * 86400 * 8)}}).lean().sort({date:'desc'});
+    var d = new Date();
+    d.setDate(reqDate.getDate() + 8);
+    var semana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
+    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy), $lt:(new Date(semana))}}).lean().sort({date:'desc'});
     res.render('notes/esta-semana', { notes })
 })
 router.get('/notes/cualquier', isAuthenticated, async (req,res)=>{
-    var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     const notes = await Note.find({user: req.user.id, dia: null}).lean().sort({date:'desc'});
     res.render('notes/sin-fecha', { notes })
 })
