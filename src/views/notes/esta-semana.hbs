@@ -4,7 +4,6 @@
     <form action="/notes/new-note" method="POST" id="nueva">
     <input type="text" id="input" name="title" placeholder="Escribe Aquí tu Tarea"/>
     <button type="submit" id="submit">Agregar Tarea</button>
-    <input type="date" name="dia">
     </form>
     <a href="/notes">INBOX</a>
     <a href="/notes/hoy">HOY</a>
@@ -23,7 +22,6 @@
     {{else}}
     <div>
         <p>No hay Tareas</p>
-        <a href="/notes/add">Crear una</a>
     </div>
     {{/each}}
 </div>

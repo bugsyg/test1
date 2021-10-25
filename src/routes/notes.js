@@ -3,10 +3,6 @@ const router = express.Router();
 const Note = require("../models/Note") 
 const { isAuthenticated } = require('../helpers/auth')
 
-router.get('/notes/add', isAuthenticated, (req,res)=>{
-    res.render('notes/new-note');
-})
-
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     const {title, fijo, cuando, duracion, limite, caracter, dia, date}=req.body
     const errors= [];
