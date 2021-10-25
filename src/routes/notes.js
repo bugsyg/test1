@@ -76,7 +76,6 @@ router.post('/notes/new-note/semana', isAuthenticated, async (req,res)=>{
         });
     }else{
         var d = new Date();
-        d.setDate(reqDate.getDate() + 7);
         var semana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
         const newNote = new Note({title, date, dia: semana});
         newNote.user = req.user.id; 
@@ -97,7 +96,6 @@ router.get('/notes', isAuthenticated, async (req,res)=>{
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     var d = new Date();
-    d.setDate(reqDate.getDate() + 1);
     var manana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy), $lt:(new Date(manana))}}).lean().sort({date:'desc'});
     res.render('notes/hoy', { notes })
@@ -105,7 +103,6 @@ router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
 router.get('/notes/semana', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     var d = new Date();
-    d.setDate(reqDate.getDate() + 8);
     var semana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy), $lt:(new Date(semana))}}).lean().sort({date:'desc'});
     res.render('notes/esta-semana', { notes })
