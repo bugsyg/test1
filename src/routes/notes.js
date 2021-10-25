@@ -34,19 +34,23 @@ router.delete('/notes/delete/:id', isAuthenticated, async (req,res) => {
 });
 
 router.get('/notes', isAuthenticated, async (req,res)=>{
-    const hoy = new Date("2021-10-23T00:00:00.000+00:00")
     const notes = await Note.find({user: req.user.id}).lean().sort({date:'desc'});
     res.render('notes/all-notes', { notes })
 })
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
-    const hoy = new Date("2021-10-23T00:00:00.000+00:00")
+    const hoy = new Date("2021-10-25T00:00:00.000+00:00")
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime()) - 1000 * 86400 * 1, $lt:(hoy.getTime() + 1000 * 86300 * 1)}}).lean().sort({date:'desc'});
     res.render('notes/hoy', { notes })
 })
-router.get('/notes/manana', isAuthenticated, async (req,res)=>{
-    const hoy = new Date("2021-10-23T00:00:00.000+00:00")
+router.get('/notes/semana', isAuthenticated, async (req,res)=>{
+    const hoy = new Date("2021-10-25T00:00:00.000+00:00")
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime() + 1000), $lt:(hoy.getTime() + 1000 * 86400 * 2)}}).lean().sort({date:'desc'});
     res.render('notes/esta-semana', { notes })
+})
+router.get('/notes/cualquier', isAuthenticated, async (req,res)=>{
+    const hoy = new Date("2021-10-25T00:00:00.000+00:00")
+    const notes = await Note.find({user: req.user.id, dia: null}).lean().sort({date:'desc'});
+    res.render('notes/sin-fecha', { notes })
 })
 
 
