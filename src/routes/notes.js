@@ -77,7 +77,7 @@ router.post('/notes/new-note/semana', isAuthenticated, async (req,res)=>{
     }else{
         var d = new Date();
         var semana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
-        const newNote = new Note({title, date, dia: semana});
+        const newNote = new Note({title, date, dia: new Date(semana).getTime()+ 1000 * 86300 * 1});
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes/semana')    
