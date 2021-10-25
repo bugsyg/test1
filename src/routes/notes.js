@@ -102,7 +102,7 @@ router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
 })
 router.get('/notes/semana', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
-    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy.getTime()-1), $lt:(new Date(hoy.getTime()+ 1000 * 86400 * 7))}}).lean().sort({date:'desc'});
+    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy).getTime()-1, $lt:new Date(hoy).getTime()+ 1000 * 86400 * 7}}).lean().sort({date:'desc'});
     res.render('notes/esta-semana', { notes })
 })
 router.get('/notes/cualquier', isAuthenticated, async (req,res)=>{
