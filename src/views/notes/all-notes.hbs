@@ -1,32 +1,30 @@
-<div class="row">
-    <h2 id="HOY">INBOX</h2>
-    <form action="/notes/new-note" method="POST" id="nueva">
-    <input type="text" id="input" name="title" placeholder="Escribe Aquí tu Tarea"/>
-    <button type="submit" id="submit">Agregar Tarea</button>
-    <input type="date" name="dia">
-    </form>
-    <a href="/notes">INBOX</a>
-    <a href="/notes/hoy">HOY</a>
-    <a href="/notes/semana">ESTA SEMANA</a>
-    <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
-    {{#each notes}}
-     <div class="col-md-3">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title d-flex justify-content-between align-items-center">
-          {{ title }} 
-        </h4>
-        <!-- DELETE REQUEST -->
-        <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
-          <input type="hidden" name="_method" value="Eliminar">
-          <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
-        </form>
-      </div>
+
+<div class="row d-flex justify-content-center container">
+    <div class="col-md-8">
+        <div class="card-hover-shadow-2x mb-3 card">
+            <div class="card-header-tab card-header">
+                <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i class="fa fa-tasks"></i>&nbsp;Task Lists</div>
+            </div>
+            <div class="scroll-area-sm">
+                <perfect-scrollbar class="ps-show-limits">
+                    <div style="position: static;" class="ps ps--active-y">
+                        <div class="ps-content">
+                            <ul class=" list-group list-group-flush">
+                                {{#each notes}}
+                                <li class="list-group-item">
+                                    {{title}}
+                                    <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                                    <input type="hidden" name="_method" value="Eliminar">
+                                    <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+                                    </form>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </perfect-scrollbar>
+            </div>
+            <div class="d-block text-right card-footer"><button class="mr-2 btn btn-link btn-sm">Cancel</button><button class="btn btn-primary">Add Task</button></div>
+        </div>
     </div>
-  </div>
-    {{else}}
-    <div>
-        <p>No hay Tareas</p>
-    </div>
-    {{/each}}
 </div>

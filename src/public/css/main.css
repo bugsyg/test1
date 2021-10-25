@@ -1,0 +1,23 @@
+body {
+    background-color: #100e19;
+    
+  }
+  .nabb .nab{
+    color: aqua;
+    font-size: 20px;
+  }
+  .nab-item{
+    padding: 5%;
+  }
+  .col-md-4{
+    background-color: #100e19;
+  }
+  .card{
+    background-color: #5c5872
+  }
+  .bg-darks{
+    background-color: #0a090f;
+  }
+  .btn btn-success btn-block{
+    background-color: #0a090f;
+  }
