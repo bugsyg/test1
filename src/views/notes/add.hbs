@@ -1,0 +1,36 @@
+<div>
+
+    <h2 id="HOY">Añadir Tarea</h2>
+    <form action="/notes/new-note" method="POST" id="nueva">
+    <input type="text" id="input" name="title" placeholder="Escribe Aquí tu Tarea"/>
+    <input type="date" name="dia">
+    <p>Tiene Horario Fijo?</p>
+        <input type="radio" id="Si" name="fijo" value="Si">
+        <label for="Si">Si</label><br>
+        <input type="radio" id="No" name="fijo" value="No">
+        <label for="No">No</label> <br>
+    <h4>Caracter:</h2>
+    <input type="radio" id="Estudio" name="caracter" value="Estudio">
+    <label for="male">Estudio</label><br>
+    <input type="radio" id="Ocio" name="caracter" value="Ocio">
+    <label for="female">Ocio</label><br>
+    <input type="radio" id="Ejercicio" name="caracter" value="Ejercicio">
+    <label for="other">Ejercicio</label> <br>
+    <input type="radio" id="Alimentacion" name="caracter" value="Alimentacion">
+    <label for="other">Alimentacion</label> <br>
+    <label for="cars">Duración</label>
+    <select id="cars" name="cars">
+    <option value="30">30 minutos</option>
+    <option value="60">1 hora</option>
+    <option value="90">1 hora y 30 minutos</option>
+    <option value="120">2 horas</option>
+    </select>
+
+    <button type="submit" id="submit">Agregar Tarea</button>
+    
+    </form>
+    <a href="/notes">INBOX</a>
+    <a href="/notes/hoy">HOY</a>
+    <a href="/notes/semana">ESTA SEMANA</a>
+    <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
+</div>

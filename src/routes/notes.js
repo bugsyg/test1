@@ -93,6 +93,9 @@ router.get('/notes', isAuthenticated, async (req,res)=>{
     const notes = await Note.find({user: req.user.id}).lean().sort({date:'desc'});
     res.render('notes/all-notes', { notes })
 })
+router.get('/notes/add', isAuthenticated, async (req,res)=>{
+    res.render('notes/add')
+})
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     var d = new Date();
