@@ -9,7 +9,7 @@ const NoteSchema = new Schema({
     duracion: {type: Number, default: null},
     limite: {type: String, default: null},
     caracter: {type: String, default: null},
-    cuando: {type: Number, default: null},
+    cuando: {type: String, default: null},
     dia: {type: Date, default: null}
 })
 
