@@ -12,7 +12,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
         errors.push({text: 'escribir titulo'})
     }
     if(errors.length>0){
-        res.render('notes/new-note', {
+        res.render('notes/all-notes', {
             errors, 
             title
         });
@@ -31,7 +31,7 @@ router.post('/notes/new-note/cualquier', isAuthenticated, async (req,res)=>{
         errors.push({text: 'escribir titulo'})
     }
     if(errors.length>0){
-        res.render('notes/new-note', {
+        res.render('notes/cualquier', {
             errors, 
             title
         });
@@ -50,7 +50,7 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
         errors.push({text: 'escribir titulo'})
     }
     if(errors.length>0){
-        res.render('notes/new-note', {
+        res.render('notes/hoy', {
             errors, 
             title
         });
@@ -70,7 +70,7 @@ router.post('/notes/new-note/semana', isAuthenticated, async (req,res)=>{
         errors.push({text: 'escribir titulo'})
     }
     if(errors.length>0){
-        res.render('notes/new-note', {
+        res.render('notes/esta-semana', {
             errors, 
             title
         });
