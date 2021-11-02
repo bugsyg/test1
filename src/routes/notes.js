@@ -5,7 +5,7 @@ const { isAuthenticated } = require('../helpers/auth')
 const moment= require('moment') 
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
-    const {title, dia, date}=req.body
+    const {title, dia, date, fijo, duracion, caracter}=req.body
     const errors= [];
 
     if(!title){
@@ -17,7 +17,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const newNote = new Note({title, dia, date})
+        const newNote = new Note({title, dia, date, fijo, duracion, caracter})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
