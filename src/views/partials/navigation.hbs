@@ -1,31 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-darks">
-  <div class="container">
-    <a class="nabb" href="/">Reides</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        {{#if user}}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Notas 
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/notes">Notas</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/users/logout">Cerrar Sesión</a>
-            </div>
-          </li>
-        {{else}}
-          <li class="nab-item">
-            <a class="nab" href="/users/signin">Iniciar Sesión</a>
-          </li>
-          <li class="nab-item">
-            <a class="nab" href="/users/signup">Registrarse</a>
-          </li>
-        {{/if}}
-      </ul>
+<div id="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand smothscroll" href="/"><b>Reides</b></a>
+      </div>
+      {{#if user}}
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Inicio</a></li>
+          <li><a href="/notes">Tareas</a></li>
+          <li><a href="/users/logout">Cerrar Sesión</a></li>
+        </ul>
+      </div>
+
+      {{else}}
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Inicio</a></li>
+          <li><a href="/users/signin">Iniciar Sesión</a></li>
+          <li><a class="nab" href="/users/signup">Registrarse</a></li>
+        </ul>
+      </div>
+      {{/if}}
+      <!--/.nav-collapse -->
     </div>
   </div>
-</nav>
