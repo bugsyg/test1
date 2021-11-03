@@ -3,6 +3,7 @@ const router = express.Router();
 const Note = require("../models/Note") 
 const { isAuthenticated } = require('../helpers/auth')
 const moment= require('moment') 
+const AppointmentPicker = require('appointment-picker');
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     const {title, dia, date, fijo, duracion, caracter, cuando}=req.body
@@ -17,7 +18,8 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        const newNote = new Note({title, dia, date, fijo, duracion, caracter, cuando})
+        var picker = new AppointmentPicker(cuando, )
+        const newNote = new Note({title, dia, date, fijo, duracion, caracter, cuando, picker})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
