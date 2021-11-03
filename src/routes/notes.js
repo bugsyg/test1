@@ -18,7 +18,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        var picker = new AppointmentPicker(cuando, )
+        var picker = new AppointmentPicker(cuando, {})
         const newNote = new Note({title, dia, date, fijo, duracion, caracter, cuando, picker})
         newNote.user = req.user.id; 
         await newNote.save()
