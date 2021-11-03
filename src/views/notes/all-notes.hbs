@@ -16,13 +16,20 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
-{{/each}}
+    </div>
+   {{/each}}
 
     <form action="/notes/new-note" method="POST" id="nueva">
     <input type="text" id="input" name="title" placeholder="Escribe Aquí tu Tarea"/>
-    <button type="submit" id="submit">Agregar Tarea</button>
+    <select id="cars" name="caracter">
+    <option value="Estudio">Estudio</option>
+    <option value="Ejercicio">Ejercicio</option>
+    <option value="Alimentacion">Alimentacion</option>
+    <option value="Ocio">Ocio</option>
+    </select>
     <input type="date" name="dia">
+    <button type="submit" id="submit">Agregar Tarea</button>
+    
     </form>
     <a href="/notes">INBOX</a>
     <a href="/notes/hoy">HOY</a>
