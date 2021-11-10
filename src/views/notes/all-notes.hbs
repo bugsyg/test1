@@ -58,7 +58,7 @@
     <ul id="Tareas">
         <li>
                 <h4>{{title}}</h4>
-                <p>de {{horaInicio}} a {{horaFin}}</p>
+                <p>de {{inicio}} a {{final}}</p>
             <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit" id="eliminar">o</button>

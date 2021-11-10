@@ -140,17 +140,19 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             finaltiempo = vacio[Math.floor(vacio.length/2)]
             horaInicio = moment(vacio[Math.floor(vacio.length/2)]);
             horaFin = finaltiempo.add(duracion, "minutes")
+            inicio = horaInicio.format("HH:mm");
+            final =horaFin.format("HH:mm");
             
     
     } else{
         horaInicio = null;
-                horaFin = null;
+         horaFin = null;
     }
 }
     
 
 
-        const newNote = new Note({title, dia, date, fijo, duracion, caracter, horas, minutos, horaInicio, horaFin})
+        const newNote = new Note({title, dia, date, duracion, caracter, horas, minutos, horaInicio, horaFin, inicio, final})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
