@@ -21,14 +21,14 @@
 
  <div>
 
-    <h2 id="HOY">Añadir Tarea</h2>
+    <h3>Añadir Tarea</h3>
     <form action="/notes/new-note" method="POST" id="nueva">
-    <input type="text" id="input" name="title" placeholder="Escribe Aquí tu Tarea"/>
-    <input type="date" name="dia">
+    <input type="text" id="input" name="title" required="true" placeholder="Escribe Aquí tu Tarea" />
+    <input type="date" name="dia" required="true">
     <p>Tiene Horario Fijo?</p>
         <input type="radio" id="Si" name="fijo" value="Si">
         <label for="Si">Si</label><br>
-        <input type="radio" id="No" name="fijo" value="No">
+        <input type="radio" id="No" name="fijo" value="No" checked="checked">
         <label for="No">No</label> <br>
     <h4>Caracter:</h2>
    <select id="cars" name="caracter">
@@ -38,19 +38,15 @@
     <option value="Ocio">Ocio</option>
     </select>
     <label for="">Duración</label>
-    <input type="number" min="05" max="600" name="duracion" />
+    <input type="number" min="05" max="600" name="duracion" required="true"/>
     <label for="">Horas</label>
-    <input type="number" min="00" max="23" name="horas" />
+    <input type="number" min="00" max="23" name="horas" required="true"/>
     <label for="">Minutos</label>
-    <input type="number" min="00" max="59" name="minutos" value="00"/>
+    <input type="number" min="00" max="59" name="minutos" value="00" required="true"/>
 
     <button type="submit" id="submit">Agregar Tarea</button>
     
     </form>
-    <a href="/notes">INBOX</a>
-    <a href="/notes/hoy">HOY</a>
-    <a href="/notes/semana">ESTA SEMANA</a>
-    <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
 </div>
     
     </form>
