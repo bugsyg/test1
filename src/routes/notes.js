@@ -15,6 +15,8 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     var corroborar2;
     var corroborar3;
     var finaltiempo;
+    var horaInicio;
+    var horaFin;
 
 
     if(!title){
