@@ -9,8 +9,11 @@ const NoteSchema = new Schema({
     duracion: {type: String, default: "30 minutos"},
     limite: {type: String, default: null},
     caracter: {type: String, default: "Estudio"},
-    cuando: {type: String, default: null},
-    dia: {type: Date, default: null}
+    horas: {type: Number, default: null},
+    minutos: {type: Number, default: null},
+    dia: {type: Date, default: null},
+    horaInicio:{type: Date, default: null},
+    horaFin:{type: Date, default: null}
 })
 
 module.exports = mongoose.model('Note', NoteSchema)

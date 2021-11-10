@@ -16,14 +16,9 @@
     <option value="Alimentacion">Alimentacion</option>
     <option value="Ocio">Ocio</option>
     </select>
-    <label for="cars">Duración</label>
-    <select id="cars" name="duracion">
-    <option value="30 minutos">30 minutos</option>
-    <option value="60 minutos">1 hora</option>
-    <option value="90 minutos">1 hora y 30 minutos</option>
-    <option value="120 minutos">2 horas</option>
-    </select>
-    <input type="time" step="1800" name="cuando" />
+    <input type="number" min="05" max="600" name="duracion" />
+    <input type="number" min="00" max="23" name="horas" />
+    <input type="number" min="00" max="59" name="minutos" />
 
     <button type="submit" id="submit">Agregar Tarea</button>
     
