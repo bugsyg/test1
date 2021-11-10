@@ -54,20 +54,20 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
                     recomendado.push(comienzo, final);
                     break;
                 case "Alimentacion":
-                    var hor =parseInt(horario)
+                    var hor =parseInt(horas)
         
-                    if (hor < 1100) {
+                    if (hor < 11) {
                         comienzo = moment(dia).add(8, 'hours');
                         final = moment(dia).add(9, 'hours').add(30, 'minutes');
                         
                     }
-                    if (hor > 1100 && hor < 1700) {
+                    if (hor > 11 && hor < 17) {
         
                         comienzo = moment(dia).add(13, 'hours');
                          final = moment(dia).add(15, 'hours');
         
                     }
-                    if (hor > 1700) {
+                    if (hor > 17) {
                         comienzo = moment(dia).add(20, 'hours');
                         final = moment(dia).add(21, 'hours').add(30, 'minutes');
         
