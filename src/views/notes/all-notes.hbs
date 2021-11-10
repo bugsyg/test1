@@ -19,17 +19,39 @@
     </div>
    {{/each}}
 
+ <div>
+
+    <h2 id="HOY">Añadir Tarea</h2>
     <form action="/notes/new-note" method="POST" id="nueva">
     <input type="text" id="input" name="title" placeholder="Escribe Aquí tu Tarea"/>
-    <select id="cars" name="caracter">
+    <input type="date" name="dia">
+    <p>Tiene Horario Fijo?</p>
+        <input type="radio" id="Si" name="fijo" value="Si">
+        <label for="Si">Si</label><br>
+        <input type="radio" id="No" name="fijo" value="No">
+        <label for="No">No</label> <br>
+    <h4>Caracter:</h2>
+   <select id="cars" name="caracter">
     <option value="Estudio">Estudio</option>
     <option value="Ejercicio">Ejercicio</option>
     <option value="Alimentacion">Alimentacion</option>
     <option value="Ocio">Ocio</option>
     </select>
-    <input type="date" name="dia">
-    <input id="time" type="text" value="10:00" name="cuando">
+    <label for="">Duración</label>
+    <input type="number" min="05" max="600" name="duracion" />
+    <label for="">Horas</label>
+    <input type="number" min="00" max="23" name="horas" />
+    <label for="">Minutos</label>
+    <input type="number" min="00" max="59" name="minutos" value="00"/>
+
     <button type="submit" id="submit">Agregar Tarea</button>
+    
+    </form>
+    <a href="/notes">INBOX</a>
+    <a href="/notes/hoy">HOY</a>
+    <a href="/notes/semana">ESTA SEMANA</a>
+    <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
+</div>
     
     </form>
     <a href="/notes">INBOX</a>
