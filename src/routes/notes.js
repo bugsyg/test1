@@ -94,11 +94,6 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
         }  else {
             recomendadadar(caracter);
             var tiem = parseInt(duracion);
-            if (tiem > recomendado.length) {
-                horaInicio = null;
-                horaFin = null;
-    
-            } else {
                 var vacio0 = getDaterange(recomendado[0], recomendado[1], []);
                  var vacio1 = getDaterange(recomendado[2], recomendado[3], [])
                  var vacio = vacio0.concat(vacio1);
@@ -150,7 +145,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     } else{
         horaInicio = null;
                 horaFin = null;
-    }}
+    }
 }
     
 
