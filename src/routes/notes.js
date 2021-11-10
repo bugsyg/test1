@@ -90,8 +90,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
 
          if (fijo === "Si") {
             horaInicio = moment(dia).add(horas, 'hours').add(minutos, 'minutes')
-            horaFin = horaInicio
-            horaFin = horaFin.add(duracion, 'minutes')
+            horaFin = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
         }  else {
             recomendadadar(caracter);
             if (duracion > recomendado.length) {
