@@ -45,7 +45,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
         
                     recomendado.push(comienzo, final);
                     recomendado.push(comienzo1, final1);
-                    console.log(recomendado)
+                    
                     break;
                 case "Ocio":
                     comienzo = moment(dia).add(20, 'hours');
@@ -142,6 +142,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             finaltiempo = vacio[Math.floor(vacio.length/2)]
             horaInicio = moment(vacio[Math.floor(vacio.length/2)]);
             if(finaltiempo != null){
+                console.log(finaltiempo)
                 horaFin = finaltiempo.add(duracion, "minutes")
                 inicio = horaInicio.format("HH:mm");
                 final =horaFin.format("HH:mm");
