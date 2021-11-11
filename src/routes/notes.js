@@ -141,7 +141,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             
             finaltiempo = vacio[Math.floor(vacio.length/2)]
             horaInicio = moment(vacio[Math.floor(vacio.length/2)]);
-            if(finaltiempo != undefined){
+            if(finaltiempo != null){
                 horaFin = finaltiempo.add(duracion, "minutes")
                 inicio = horaInicio.format("HH:mm");
                 final =horaFin.format("HH:mm");
