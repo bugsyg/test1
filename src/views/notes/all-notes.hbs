@@ -55,6 +55,8 @@
     <a href="/notes/semana">ESTA SEMANA</a>
     <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
     {{#each notes}}
+
+        {{#if inicio}}
     <ul id="Tareas">
         <li>
                 <h4>{{title}}</h4>
@@ -65,9 +67,16 @@
             </form>
         </li>
     </ul>
-    {{else}}
-    <div>
-        <p>No hay Tareas</p>
-    </div>
+        {{/else}}
+        <ul id="Tareas">
+        <li>
+                <h4>{{title}}</h4>
+                <p>la tarea es demasiado larga, recortala, elmina otras, o ingresa su horario manualmente</p>
+            <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" id="eliminar">o</button>
+            </form>
+        </li>
+    </ul>
     {{/each}}
 </div>
