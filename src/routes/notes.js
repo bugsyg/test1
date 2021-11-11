@@ -91,6 +91,8 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          if (fijo === "Si") {
             horaInicio = moment(dia).add(horas, 'hours').add(minutos, 'minutes')
             horaFin = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
+            inicio = horaInicio.format("HH:mm");
+            final =horaFin.format("HH:mm");
         }  else {
             recomendadadar(caracter);
             var tiem = parseInt(duracion);
