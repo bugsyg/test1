@@ -138,10 +138,10 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     
     
             }
-            
+            if(vacio.length > 0){
             finaltiempo = vacio[Math.floor(vacio.length/2)]
             horaInicio = moment(vacio[Math.floor(vacio.length/2)]);
-            if(finaltiempo != null){
+            
                 console.log(finaltiempo)
                 horaFin = finaltiempo.add(duracion, "minutes")
                 inicio = horaInicio.format("HH:mm");
@@ -154,6 +154,8 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     } else{
         horaInicio = null;
          horaFin = null;
+         inicio = null;
+         final = null;
     }
 }
     
