@@ -10,7 +10,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     const tareas = await Note.find({user: req.user.id}).lean().sort({date:'desc'});
     var recomendado= [];
     var espacio = [];
-    var comienzo, comienzo1, final, final1;
+    var comienzo, comienzo1, final0, final1;
     var corroborar;
     var corroborar2;
     var corroborar3;
@@ -32,18 +32,18 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             switch (caracter) {
                 case "Ejercicio":
                     comienzo = moment(dia).add(14, 'hours');
-                    final = moment(dia).add(18, 'hours');
+                    final0 = moment(dia).add(18, 'hours');
         
-                    recomendado.push(comienzo, final);
+                    recomendado.push(comienzo, final0);
                     break;
                 case "Estudio":
                     comienzo = moment(dia).add(10, 'hours');
-                    final = moment(dia).add(14, 'hours');
+                    final0 = moment(dia).add(14, 'hours');
         
                     comienzo1 = moment(dia).add(16, 'hours');
                     final1 = moment(dia).add(22, 'hours');
         
-                    recomendado.push(comienzo, final);
+                    recomendado.push(comienzo, final0);
                     recomendado.push(comienzo1, final1);
                     
                     break;
@@ -51,28 +51,28 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
                     comienzo = moment(dia).add(20, 'hours');
                     final = moment(dia).add(22, 'hours');
         
-                    recomendado.push(comienzo, final);
+                    recomendado.push(comienzo, final0);
                     break;
                 case "Alimentacion":
                     var hor =parseInt(horas)
         
                     if (hor < 11) {
                         comienzo = moment(dia).add(8, 'hours');
-                        final = moment(dia).add(9, 'hours').add(30, 'minutes');
+                        final0 = moment(dia).add(9, 'hours').add(30, 'minutes');
                         
                     }
                     if (hor > 11 && hor < 17) {
         
                         comienzo = moment(dia).add(13, 'hours');
-                         final = moment(dia).add(15, 'hours');
+                         final0 = moment(dia).add(15, 'hours');
         
                     }
                     if (hor > 17) {
                         comienzo = moment(dia).add(20, 'hours');
-                        final = moment(dia).add(21, 'hours').add(30, 'minutes');
+                        final0 = moment(dia).add(21, 'hours').add(30, 'minutes');
         
                     }
-                     recomendado.push(comienzo, final);
+                     recomendado.push(comienzo, final0);
                     break;
             }
         }
@@ -142,7 +142,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             finaltiempo = vacio[Math.floor(vacio.length/2)]
             horaInicio = moment(vacio[Math.floor(vacio.length/2)]);
             
-                console.log(finaltiempo)
+                console.log(vacio)
                 horaFin = finaltiempo.add(duracion, "minutes")
                 inicio = horaInicio.format("HH:mm");
                 final =horaFin.format("HH:mm");
