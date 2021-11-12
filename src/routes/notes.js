@@ -169,7 +169,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
         if (inicio == null) {
             mensaje = " La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
         } else{
-            mensaje = null;
+            mensaje = "De " + inicio + " a " + final;
         }
         const newNote = new Note({title, dia, date, duracion, horas, minutos, horaInicio, horaFin, inicio, final, mensaje})
         newNote.user = req.user.id; 
