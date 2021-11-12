@@ -40,7 +40,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
                     recomendado.push(comienzo, final0);
                     break;
                 case "Estudio":
-                    comienzo = moment(dia).add(10, 'hours');
+                    comienzo = moment(dia).add(7, 'hours');
                     final0 = moment(dia).add(14, 'hours');
         
                     comienzo1 = moment(dia).add(16, 'hours');
@@ -51,7 +51,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
                     
                     break;
                 case "Ocio":
-                    comienzo = moment(dia).add(20, 'hours');
+                    comienzo = moment(dia).add(18, 'hours');
                     final = moment(dia).add(22, 'hours');
         
                     recomendado.push(comienzo, final0);
