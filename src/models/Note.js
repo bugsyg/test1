@@ -8,6 +8,8 @@ const NoteSchema = new Schema({
     mensaje: {type: String, default: null},
     horario: {type: String, default: null},
     dia: {type: Date, default: null},
+    horaInicio:{type: Date, default: null},
+    horaFin:{type: Date, default: null},
 })
 
 module.exports = mongoose.model('Note', NoteSchema)

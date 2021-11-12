@@ -30,7 +30,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             errors, 
             title
         });
-    }else{ if(dia != undefined){
+    }else{ if(dia){
         function recomendadadar(caracter) {
             switch (caracter) {
                 case "Ejercicio":
