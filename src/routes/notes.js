@@ -5,7 +5,7 @@ const { isAuthenticated } = require('../helpers/auth')
 const moment= require('moment') 
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
-    const {title, dia, date, fijo, duracion, caracter, horas, minutos}=req.body
+    const {title, dia, date, fijo, duracion, caracter, horario}=req.body
     const errors= [];
     const tareas = await Note.find({user: req.user.id}).lean().sort({date:'desc'});
     var recomendado= [];
@@ -18,7 +18,9 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     var horaInicio;
     var horaFin;
     var mensaje;
-
+    var hrr = horario.split(":");
+    var horas = parseInt(hrr[0]);
+    var minutos = parseInt(hrr[1]);
 
     if(!title){
         errors.push({text: 'escribir titulo'})
@@ -141,9 +143,9 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             }console.log(vacio)
             if(vacio.length > 0){
 
-            horaInicio = moment(vacio[(Math.floor(vacio.length/2))-1]);
+            horaInicio = moment(vacio[(Math.floor(vacio.length/2))]);
             
-                finaltiempo = moment(vacio[(Math.floor(vacio.length/2))-1]);
+                finaltiempo = moment(vacio[(Math.floor(vacio.length/2))]);
                 horaFin = finaltiempo.add(tiem, "minutes")
                 inicio = horaInicio.format("HH:mm");
                 final =horaFin.format("HH:mm");
