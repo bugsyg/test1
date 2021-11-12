@@ -171,7 +171,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
         } else{
             mensaje = "De " + inicio + " a " + final;
         }
-        const newNote = new Note({title, dia, date, duracion, horas, minutos, horaInicio, horaFin, inicio, final, mensaje})
+        const newNote = new Note({title, dia, date, duracion, horario, horaInicio, horaFin, mensaje})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
