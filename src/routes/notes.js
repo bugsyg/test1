@@ -30,7 +30,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             errors, 
             title
         });
-    }else{
+    }else{ if(dia != undefined){
         function recomendadadar(caracter) {
             switch (caracter) {
                 case "Ejercicio":
@@ -165,7 +165,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     }
 }
     
-
+    }
         if (inicio == null) {
             mensaje = " La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
         } else{
