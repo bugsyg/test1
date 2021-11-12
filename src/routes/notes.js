@@ -165,7 +165,11 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     }
 }
     
-    }
+    }else{
+        horaInicio = null;
+         horaFin = null;
+         inicio = null;
+         final = null;}
         if (inicio == null) {
             mensaje = " La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
         } else{
