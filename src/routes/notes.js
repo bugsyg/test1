@@ -214,6 +214,7 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
     const {title, dia, date, fijo, duracion, caracter, horario}=req.body
     const errors= [];
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
+    const tareas = await Note.find({user: req.user.id}).lean().sort({horaInicio:'desc'});
     var recomendado= [];
     var espacio = [];
     var comienzo, comienzo1, final0, final1;
