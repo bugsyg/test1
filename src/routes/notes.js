@@ -153,10 +153,6 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
                 horaFin = null;
                 inicio = null;
                 final = null;}
-            
-            
-            
-    
     } else{
         horaInicio = null;
          horaFin = null;
@@ -175,8 +171,15 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          horaFin = null;
          inicio = null;
          final = null;}
+         if (horario) {  
+            var hasta = moment(hoy).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
+            hasta = hasta.format("HH:mm")   
+        } else if(!horario){
+            var hasta = null;
+        }
+         
 
-        const newNote = new Note({title, dia, date, duracion, horario, horaInicio, horaFin, mensaje})
+        const newNote = new Note({title, dia, date, hasta, horario, horaInicio, horaFin, mensaje})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
@@ -202,8 +205,22 @@ router.post('/notes/new-note/cualquier', isAuthenticated, async (req,res)=>{
     }
 })
 router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
-    const {title, date}=req.body
+    const {title, date, duracion, caracter, horario}=req.body
     const errors= [];
+    var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
+    var recomendado= [];
+    var espacio = [];
+    var comienzo, comienzo1, final0, final1;
+    var corroborar;
+    var corroborar2;
+    var corroborar3;
+    var finaltiempo;
+    var horaInicio;
+    var horaFin;
+    var mensaje;
+    var hrr = horario.split(":");
+    var horas = parseInt(hrr[0]);
+    var minutos = parseInt(hrr[1]);
 
     if(!title){
         errors.push({text: 'escribir titulo'})
@@ -214,8 +231,147 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
             title
         });
     }else{
-        var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
-        const newNote = new Note({title, date, dia: hoy})
+        function recomendadadar(caracter) {
+            switch (caracter) {
+                case "Ejercicio":
+                    comienzo = moment(hoy).add(14, 'hours');
+                    final0 = moment(hoy).add(18, 'hours');
+        
+                    recomendado.push(comienzo, final0);
+                    break;
+                case "Estudio":
+                    comienzo = moment(hoy).add(7, 'hours');
+                    final0 = moment(hoy).add(14, 'hours');
+        
+                    comienzo1 = moment(hoy).add(16, 'hours');
+                    final1 = moment(hoy).add(22, 'hours');
+        
+                    recomendado.push(comienzo, final0);
+                    recomendado.push(comienzo1, final1);
+                    
+                    break;
+                case "Ocio":
+                    comienzo = moment(hoy).add(18, 'hours');
+                    final = moment(hoy).add(22, 'hours');
+        
+                    recomendado.push(comienzo, final0);
+                    break;
+                case "Alimentacion":
+                    var hor =parseInt(horas)
+        
+                    if (hor < 11) {
+                        comienzo = moment(hoy).add(8, 'hours');
+                        final0 = moment(hoy).add(9, 'hours').add(30, 'minutes');
+                        
+                    }
+                    if (hor > 11 && hor < 17) {
+        
+                        comienzo = moment(hoy).add(13, 'hours');
+                         final0 = moment(hoy).add(15, 'hours');
+        
+                    }
+                    if (hor > 17) {
+                        comienzo = moment(hoy).add(20, 'hours');
+                        final0 = moment(hoy).add(21, 'hours').add(30, 'minutes');
+        
+                    }
+                     recomendado.push(comienzo, final0);
+                    break;
+            }
+        }
+        function getDaterange(start, end, arr) {
+            if (!moment(start).isSameOrAfter(end)) {
+               if (arr.length==0) arr.push(moment(start));
+               var next = moment(start).add(1, 'minutes');
+               arr.push(next);
+               getDaterange(next, end, arr);
+            } else {
+               return arr;
+            }
+            return arr;
+         }
+
+         if (fijo === "Si") {
+            horaInicio = moment(hoy).add(horas, 'hours').add(minutos, 'minutes')
+            horaFin = moment(hoy).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
+            inicio = horaInicio.format("HH:mm");
+            final =horaFin.format("HH:mm");
+        }  else {
+            recomendadadar(caracter);
+            var tiem = parseInt(duracion);
+                var vacio0 = getDaterange(recomendado[0], recomendado[1], []);
+                 var vacio1 = getDaterange(recomendado[2], recomendado[3], [])
+                 var vacio = vacio0.concat(vacio1);
+            
+            for (let i = 0; i < tareas.length; i++) {
+                for (let index = 0; index < vacio.length; index++) {
+                    if (vacio[index].isBetween(tareas[i].horaInicio, tareas[i].horaFin) || vacio[index].isSame(tareas[i].horaInicio) || vacio[index].isSame(tareas[i].horaFin)){
+                        espacio.push(vacio[index]);
+                        continue;
+                    }
+                }
+            } for (let a = 0; a < vacio.length; a++) {
+                for (let b = 0; b < espacio.length; b++) {
+                    if (espacio[b] == vacio[a]) {
+                        vacio.splice([a], 1)
+                    }
+    
+                }
+    
+            }
+             tiem = parseInt(duracion);
+             if (vacio.length>tiem) {
+                
+            
+            for (let c = 0; c < vacio.length; c++) {
+                    
+                if(vacio[c+tiem] != undefined){
+    
+                    corroborar3 = vacio[c+tiem];
+    
+                }
+                    corroborar = vacio[c];
+                    
+            corroborar2 = moment(corroborar).add(tiem, "minutes");
+    
+            if (corroborar2.format("HHmm") != corroborar3.format("HHmm")){
+                         vacio.splice(c, 1);
+                    c--;
+                    }
+    
+    
+            }console.log(vacio)
+            if(vacio.length > 0){
+
+            horaInicio = moment(vacio[(Math.floor(vacio.length/2))]);
+            
+                finaltiempo = moment(vacio[(Math.floor(vacio.length/2))]);
+                horaFin = finaltiempo.add(tiem, "minutes")
+                inicio = horaInicio.format("HH:mm");
+                final =horaFin.format("HH:mm");
+            } else{horaInicio = null;
+                horaFin = null;
+                inicio = null;
+                final = null;}
+    } else{
+        horaInicio = null;
+         horaFin = null;
+         inicio = null;
+         final = null;
+    }}
+    if (inicio == null) {
+        mensaje = " La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
+    } else if (inicio){
+        mensaje = "De " + inicio + " a " + final;
+    }
+    if (horario) {  
+        var hasta = moment(hoy).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
+        hasta = hasta.format("HH:mm")   
+    } else if(!horario){
+        var hasta = null;
+    }
+
+        const newNote = new Note({title, date, dia: hoy, hasta, horario, horaInicio, horaFin, mensaje})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes/hoy')    

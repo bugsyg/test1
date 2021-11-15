@@ -10,20 +10,16 @@
     <a href="/notes/semana">ESTA SEMANA</a>
     <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
     {{#each notes}}
-     <div class="col-md-3">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title d-flex justify-content-between align-items-center">
-          {{ title }} 
-        </h4>
-        <!-- DELETE REQUEST -->
-        <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
-          <input type="hidden" name="_method" value="Eliminar">
-          <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
-        </form>
-      </div>
-    </div>
-  </div>
+    <ul id="Tareas">
+        <li>
+                <h4>{{title}}</h4>
+                       <p class="text-muted">{{mensaje}}</p>
+            <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" id="eliminar">o</button>
+            </form>
+        </li>
+    </ul>
     {{else}}
     <div>
         <p>No hay Tareas</p>
