@@ -370,14 +370,14 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
     } else if (inicio){
         mensaje = "De " + inicio + " a " + final;
     }
-    if (horario && dia) {  
+    if (horario) {  
         var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
        mensaje = "de " + horario + " a " + hasta.format("HH:mm"); 
    } else if(!horario){
        mensaje = null;
    }
-
-        const newNote = new Note({title, dia, date, mensajeReides, horaInicio, horaFin, mensaje})
+        var diadesemana = "Hoy";
+        const newNote = new Note({title, dia, date, mensajeReides, horaInicio, horaFin, mensaje, diadesemana})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes/hoy')    
