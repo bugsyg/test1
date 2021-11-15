@@ -159,8 +159,8 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          inicio = null;
          final = null;
     }}
-    if (inicio == null) {
-        mensajeReides = " La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
+    if (!inicio) {
+        mensajeReides = "La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
     } else if (inicio){
         mensajeReides = "De " + inicio + " a " + final;
     }
@@ -175,16 +175,14 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          if (horario && dia) {  
              var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
             mensaje = "de " + horario + " a " + hasta.format("HH:mm"); 
-        } else if(!horario){
-            mensaje = null;
-        }
-        if (dia) {
             var localLocale = moment(horaInicio);
             moment.locale('es');
             localLocale.locale(false);
             var diadesemana = localLocale.format('dddd'); 
+        } else if(!horario){
+            mensaje = null;
         }
-        else if (!dia) {
+         if (!dia) {
             var diadesemana = null;
         }
        
