@@ -10,6 +10,7 @@ const NoteSchema = new Schema({
     dia: {type: Date, default: null},
     horaInicio:{type: Date, default: null},
     horaFin:{type: Date, default: null},
+    hasta:{type: String, default: null}
 })
 
 module.exports = mongoose.model('Note', NoteSchema)
