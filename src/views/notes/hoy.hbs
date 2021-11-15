@@ -1,10 +1,52 @@
 <div>
    
     <h2 id="HOY">HOY</h2>
-    <form action="/notes/new-note/hoy" method="POST" id="nueva">
-    <input type="text" id="input" name="title" placeholder="Escribe Aquí tu Tarea"/>
+    {{#if error }}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{error}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+     </div>
+    {{/if}}
+
+   {{#each errors}}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{text}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+   {{/each}}
+
+ <div>
+
+    <h3>Añadir Tarea</h3>
+    <form action="/notes/new-note" method="POST" id="nueva">
+    <input type="text" id="input" name="title" required="true" placeholder="Escribe Aquí tu Tarea" />
+    <input type="date" name="dia">
+    <p>Tiene Horario Fijo?</p>
+        <input type="radio" id="Si" name="fijo" value="Si">
+        <label for="Si">Si</label><br>
+        <input type="radio" id="No" name="fijo" value="No" checked="checked">
+        <label for="No">No</label> <br>
+    <h4>Caracter:</h2>
+   <select id="cars" name="caracter">
+    <option value="Estudio">Estudio/Trabajo</option>
+    <option value="Ejercicio">Ejercicio</option>
+    <option value="Alimentacion">Alimentacion</option>
+    <option value="Ocio">Ocio</option>
+    </select>
+    <label for="">Duración (en minutos):</label>
+    <input type="number" min="05" max="600" name="duracion" value="30"/>
+    <label for="">Horario:</label>
+    <input type="time" name="horario" value="12:00"/>
+ 
+
     <button type="submit" id="submit">Agregar Tarea</button>
+    
     </form>
+</div>
     <a href="/notes">INBOX</a>
     <a href="/notes/hoy">HOY</a>
     <a href="/notes/semana">ESTA SEMANA</a>
