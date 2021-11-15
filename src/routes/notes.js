@@ -173,7 +173,8 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          final = null;}
 
          if (horario) {  
-            mensaje = "de" + horario + "a" + moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes'); 
+             var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
+            mensaje = "de" + horario + "a" + hasta.format("HH:mm"); 
         } else if(!horario){
             mensaje = null;
         }
@@ -381,7 +382,7 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
         var hasta = null;
     }
 
-        const newNote = new Note({title, date, dia: hoy, hasta, horario, horaInicio, horaFin, mensaje})
+        const newNote = new Note({title, dia, date, mensajeReides, horaInicio, horaFin, mensaje})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes/hoy')    
