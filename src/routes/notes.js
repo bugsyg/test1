@@ -172,9 +172,9 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          inicio = null;
          final = null;}
 
-         if (horario) {  
+         if (horario && dia) {  
              var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
-            mensaje = "de" + horario + "a" + hasta.format("HH:mm"); 
+            mensaje = "de " + horario + " a " + hasta.format("HH:mm"); 
         } else if(!horario){
             mensaje = null;
         }
@@ -375,12 +375,12 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
     } else if (inicio){
         mensaje = "De " + inicio + " a " + final;
     }
-    if (horario) {  
-        var hasta = moment(hoy).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
-        hasta = hasta.format("HH:mm")   
-    } else if(!horario){
-        var hasta = null;
-    }
+    if (horario && dia) {  
+        var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
+       mensaje = "de " + horario + " a " + hasta.format("HH:mm"); 
+   } else if(!horario){
+       mensaje = null;
+   }
 
         const newNote = new Note({title, dia, date, mensajeReides, horaInicio, horaFin, mensaje})
         newNote.user = req.user.id; 
