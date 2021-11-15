@@ -172,7 +172,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          inicio = null;
          final = null;}
          if (horario) {  
-            var hasta = moment(hoy).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
+            var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
             hasta = hasta.format("HH:mm")   
         } else if(!horario){
             var hasta = null;
