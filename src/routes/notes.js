@@ -211,7 +211,7 @@ router.post('/notes/new-note/cualquier', isAuthenticated, async (req,res)=>{
     }
 })
 router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
-    const {title, date, duracion, caracter, horario}=req.body
+    const {title, dia, date, fijo, duracion, caracter, horario}=req.body
     const errors= [];
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     var recomendado= [];
