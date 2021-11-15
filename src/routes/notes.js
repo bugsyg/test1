@@ -160,9 +160,9 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          final = null;
     }}
     if (inicio == null) {
-        mensaje = " La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
+        mensajeReides = " La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
     } else if (inicio){
-        mensaje = "De " + inicio + " a " + final;
+        mensajeReides = "De " + inicio + " a " + final;
     }
 
     
@@ -171,15 +171,25 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          horaFin = null;
          inicio = null;
          final = null;}
+
          if (horario) {  
-            var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
-            hasta = hasta.format("HH:mm")   
+            mensaje = "de" + horario + "a" + moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes'); 
         } else if(!horario){
-            var hasta = null;
+            mensaje = null;
         }
+        if (dia) {
+            var localLocale = moment(horaInicio);
+            moment.locale('es');
+            localLocale.locale(false);
+            var diadesemana = localLocale.format('dddd'); 
+        }
+        else if (!dia) {
+            var diadesemana = null;
+        }
+       
          
 
-        const newNote = new Note({title, dia, date, hasta, horario, horaInicio, horaFin, mensaje})
+        const newNote = new Note({title, dia, date, mensajeReides, horaInicio, horaFin, mensaje, diadesemana})
         newNote.user = req.user.id; 
         await newNote.save()
         res.redirect('/notes')    
