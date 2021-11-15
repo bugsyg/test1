@@ -372,7 +372,7 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
         mensajeReides = "De " + inicio + " a " + final;
     }
     if (horario) {  
-        var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
+        var hasta = moment(hoy).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
        mensaje = "de " + horario + " a " + hasta.format("HH:mm"); 
    } else if(!horario){
        mensaje = null;
