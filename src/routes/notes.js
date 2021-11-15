@@ -152,13 +152,9 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             } else{horaInicio = null;
                 horaFin = null;
                 inicio = null;
-                final = null;}
-    } else{
-        horaInicio = null;
-         horaFin = null;
-         inicio = null;
-         final = null;
-    }}
+                final = null;
+                mensajeReides = null;}
+    } }
     if (!inicio) {
         mensajeReides = "La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
     } else if (inicio){
@@ -170,7 +166,8 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
         horaInicio = null;
          horaFin = null;
          inicio = null;
-         final = null;}
+         final = null;
+         mensajeReides = null;}
 
          if (horario && dia) {  
              var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
