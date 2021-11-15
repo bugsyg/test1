@@ -7,7 +7,7 @@ const moment= require('moment')
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     const {title, dia, date, fijo, duracion, caracter, horario}=req.body
     const errors= [];
-    const tareas = await Note.find({user: req.user.id}).lean().sort({date:'desc'});
+    const tareas = await Note.find({user: req.user.id}).lean().sort({horaInicio:'desc'});
     var recomendado= [];
     var espacio = [];
     var comienzo, comienzo1, final0, final1;
@@ -405,7 +405,7 @@ router.delete('/notes/delete/:id', isAuthenticated, async (req,res) => {
 });
 
 router.get('/notes', isAuthenticated, async (req,res)=>{
-    const notes = await Note.find({user: req.user.id}).lean().sort({date:'desc'});
+    const notes = await Note.find({user: req.user.id}).lean().sort({horaInicio:'desc'});
     res.render('notes/all-notes', { notes })
 })
 router.get('/notes/add', isAuthenticated, async (req,res)=>{
@@ -415,7 +415,7 @@ router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     var d = new Date();
     var manana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
-    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy).getTime()-1, $lt:(new Date(hoy).getTime()+ 1000 * 86300 * 1)}}).lean().sort({date:'desc'});
+    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy).getTime()-1, $lt:(new Date(hoy).getTime()+ 1000 * 86300 * 1)}}).lean().sort({horaInicio:'desc'});
     res.render('notes/hoy', { notes })
 })
 router.get('/notes/semana', isAuthenticated, async (req,res)=>{
@@ -424,7 +424,7 @@ router.get('/notes/semana', isAuthenticated, async (req,res)=>{
     res.render('notes/esta-semana', { notes })
 })
 router.get('/notes/cualquier', isAuthenticated, async (req,res)=>{
-    const notes = await Note.find({user: req.user.id, dia: null}).lean().sort({date:'desc'});
+    const notes = await Note.find({user: req.user.id, dia: null}).lean().sort({horaInicio:'desc'});
     res.render('notes/sin-fecha', { notes })
 })
 
