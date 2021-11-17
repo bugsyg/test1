@@ -187,6 +187,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
         }
          if (!dia) {
             var diadesemana = null;
+            mensajeReides = "Esta tarea no tiene un día asignado";
         }
        
          
