@@ -158,7 +158,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
     if (!inicio) {
         mensajeReides = "La tarea es demasiado extensa, recórtala, elmina otras, o prueba introducirla manualmente"
     } else if (inicio){
-        mensajeReides = "De " + inicio + " a " + final;
+        mensajeReides = "de " + inicio + " a " + final;
     }
 
     
