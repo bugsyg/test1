@@ -171,11 +171,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
 
          if (horario && dia) {  
              var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
-            mensaje = "de " + horario + " a " + hasta.format("HH:mm"); 
-            
-            
-
-            
+            mensaje = "de " + horario + " a " + hasta.format("HH:mm");  
         } else if(!horario){
             mensaje = null;
         }
@@ -187,6 +183,8 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             moment.locale('es');
             localLocale.locale(false);
             var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
+            console.log(hoy)
+            console.log(localLocale)
             if (hoy == localLocale) {
                 var diadesemana= "Hoy"
             }else {var diadesemana = localLocale.format('dddd DD'); }
