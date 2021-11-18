@@ -391,27 +391,7 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
         res.redirect('/notes/hoy')    
     }
 })
-router.post('/notes/new-note/semana', isAuthenticated, async (req,res)=>{
-    const {title, date}=req.body
-    const errors= [];
 
-    if(!title){
-        errors.push({text: 'escribir titulo'})
-    }
-    if(errors.length>0){
-        res.render('notes/esta-semana', {
-            errors, 
-            title
-        });
-    }else{
-        var d = new Date();
-        var semana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
-        const newNote = new Note({title, date, dia: new Date(semana).getTime()+ 1000 * 86400 * 7});
-        newNote.user = req.user.id; 
-        await newNote.save()
-        res.redirect('/notes/semana')    
-    }
-})
 
 router.delete('/notes/delete/:id', isAuthenticated, async (req,res) => {
     await Note.findByIdAndDelete(req.params.id);
@@ -422,9 +402,7 @@ router.get('/notes', isAuthenticated, async (req,res)=>{
     const notes = await Note.find({user: req.user.id}).lean().sort({dia:'desc'});
     res.render('notes/all-notes', { notes })
 })
-router.get('/notes/add', isAuthenticated, async (req,res)=>{
-    res.render('notes/add')
-})
+
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
     var d = new Date();
@@ -432,11 +410,7 @@ router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy).getTime()-1, $lt:(new Date(hoy).getTime()+ 1000 * 86300 * 1)}}).lean().sort({horario:'desc'});
     res.render('notes/hoy', { notes })
 })
-router.get('/notes/semana', isAuthenticated, async (req,res)=>{
-    var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
-    const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy).getTime()+1, $lt:new Date(hoy).getTime()+ 1000 * 86401 * 7}}).lean().sort({date:'desc'});
-    res.render('notes/esta-semana', { notes })
-})
+
 router.get('/notes/cualquier', isAuthenticated, async (req,res)=>{
     const notes = await Note.find({user: req.user.id, dia: null}).lean().sort({date:'desc'});
     res.render('notes/sin-fecha', { notes })

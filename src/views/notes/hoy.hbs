@@ -24,7 +24,6 @@
     <h3>Añadir Tarea</h3>
     <form action="/notes/new-note/hoy" method="POST" id="nueva">
     <input type="text" id="input" name="title" required="true" placeholder="Escribe Aquí tu Tarea" />
-    <input type="date" name="dia">
     <p>Tiene Horario Fijo?</p>
         <input type="radio" id="Si" name="fijo" value="Si">
         <label for="Si">Si</label><br>
@@ -49,7 +48,6 @@
 </div>
     <a href="/notes">INBOX</a>
     <a href="/notes/hoy">HOY</a>
-    <a href="/notes/semana">ESTA SEMANA</a>
     <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
     {{#each notes}}
     <ul id="Tareas">

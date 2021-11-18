@@ -24,27 +24,12 @@
     <h3>Añadir Tarea</h3>
     <form action="/notes/new-note/cualquier" method="POST" id="nueva">
     <input type="text" id="input" name="title" required="true" placeholder="Escribe Aquí tu Tarea" />
-    <p>Tiene Horario Fijo?</p>
-        <input type="radio" id="Si" name="fijo" value="Si">
-        <label for="Si">Si</label><br>
-        <input type="radio" id="No" name="fijo" value="No" checked="checked">
-        <label for="No">No</label> <br>
-    <h4>Caracter:</h2>
-   <select id="cars" name="caracter">
-    <option value="Estudio">Estudio/Trabajo</option>
-    <option value="Ejercicio">Ejercicio</option>
-    <option value="Alimentacion">Alimentacion</option>
-    <option value="Ocio">Ocio</option>
-    </select>
- 
-
     <button type="submit" id="submit">Agregar Tarea</button>
     
     </form>
 </div>
     <a href="/notes">INBOX</a>
     <a href="/notes/hoy">HOY</a>
-    <a href="/notes/semana">ESTA SEMANA</a>
     <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
     {{#each notes}}
     <ul id="Tareas">
