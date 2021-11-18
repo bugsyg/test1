@@ -402,6 +402,10 @@ router.get('/notes', isAuthenticated, async (req,res)=>{
     const notes = await Note.find({user: req.user.id}).lean().sort({dia:'desc'});
     res.render('notes/all-notes', { notes })
 })
+router.get('/reides', isAuthenticated, async (req,res)=>{
+    const notes = await Note.find({user: req.user.id}).lean().sort({dia:'desc'});
+    res.render('notes/reides', { notes })
+})
 
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
     var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');

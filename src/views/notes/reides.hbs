@@ -1,0 +1,39 @@
+<div>
+
+    <h2 id="HOY">Tareas Ordenadas:</h2>
+    {{#if error }}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{error}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+     </div>
+    {{/if}}
+
+   {{#each errors}}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{text}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+   {{/each}}
+    {{#each notes}}
+
+    
+    <ul id="Tareas">
+        <li>
+                <h4>{{title}}</h4>
+                       <p class="text-muted">{{diadesemana}} {{mensajeReides}}</p>
+            <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" id="eliminar">o</button>
+            </form>
+        </li>
+    </ul>
+    {{else}}
+    <div>
+        <p>No hay Tareas</p>
+    </div>
+    {{/each}}
+</div>
