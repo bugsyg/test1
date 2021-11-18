@@ -185,9 +185,9 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             var hoy = moment(new Date()).startOf('day');
             console.log(hoy)
             console.log(localLocale)
-            if (hoy == localLocale) {
-                var diadesemana= "Hoy"
-            }else {var diadesemana = localLocale.format('dddd DD'); }
+            if (hoy !== localLocale) {var diadesemana = localLocale.format('dddd DD');
+                
+            }else { var diadesemana= "Hoy"}
         }
        
          
