@@ -172,13 +172,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          if (horario && dia) {  
              var hasta = moment(dia).add(horas, 'hours').add(minutos, 'minutes').add(duracion, 'minutes')
             mensaje = "de " + horario + " a " + hasta.format("HH:mm"); 
-            var localLocale = moment(dia);
-            moment.locale('es');
-            localLocale.locale(false);
-            var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
-            if (hoy == localLocale) {
-                var diadesemana= "Hoy"
-            }else {var diadesemana = localLocale.format('dddd DD'); }
+            
             
 
             
@@ -188,6 +182,14 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
          if (!dia) {
             var diadesemana = null;
             mensajeReides = "Esta tarea no tiene un día asignado";
+        } else if (dia){
+            var localLocale = moment(dia);
+            moment.locale('es');
+            localLocale.locale(false);
+            var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
+            if (hoy == localLocale) {
+                var diadesemana= "Hoy"
+            }else {var diadesemana = localLocale.format('dddd DD'); }
         }
        
          
