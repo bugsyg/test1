@@ -182,7 +182,7 @@ router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
             var localLocale = moment(dia);
             moment.locale('es');
             localLocale.locale(false);
-            var hoy = moment(new Date());
+            var hoy = moment(new Date()).subtract(3, 'hours');;
             console.log(hoy)
             console.log(localLocale)
             if (hoy.isSame(localLocale, 'day')) {
