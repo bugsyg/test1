@@ -220,7 +220,7 @@ router.post('/notes/new-note/cualquier', isAuthenticated, async (req,res)=>{
 router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
     const {title, dia, date, fijo, duracion, caracter, horario}=req.body
     const errors= [];
-    var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
+    var hoy = moment(new Date()).subtract(3, 'hours').format('YYYY-MM-DD[T00:00:00.000Z]');
     const tareas = await Note.find({user: req.user.id}).lean().sort({horaInicio:'desc'});
     var recomendado= [];
     var espacio = [];
@@ -408,9 +408,7 @@ router.get('/reides', isAuthenticated, async (req,res)=>{
 })
 
 router.get('/notes/hoy', isAuthenticated, async (req,res)=>{
-    var hoy = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]');
-    var d = new Date();
-    var manana = moment(d).format('YYYY-MM-DD[T00:00:00.000Z]')
+    var hoy = moment(new Date()).subtract(3, 'hours').format('YYYY-MM-DD[T00:00:00.000Z]');
     const notes = await Note.find({user: req.user.id, dia: {$gt: new Date(hoy).getTime()-1, $lt:(new Date(hoy).getTime()+ 1000 * 86300 * 1)}}).lean().sort({horario:'desc'});
     res.render('notes/hoy', { notes })
 })
