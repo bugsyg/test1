@@ -200,6 +200,12 @@ button {
   margin-right: 4px;
   object-fit: cover;
 }
+.li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 150%;
+}
 .page-content {
   width: 500px;
   display: flex;

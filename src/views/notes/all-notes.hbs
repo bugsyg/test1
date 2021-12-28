@@ -66,7 +66,7 @@
     <div class="tasks-wrapper">
       <div class="task">
         {{#each notes}}
-        <li>
+        <li class="li">
                 <span class="label-text">{{title}}</span>
                        <span class="tag progress">{{diadesemana}} {{mensaje}}</span>
             <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
