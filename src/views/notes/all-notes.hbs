@@ -15,13 +15,9 @@
     </button>
     </div>
    {{/each}}
-</div>
+
 <div class="task-manager">
   <div class="left-bar">
-    <div class="upper-part">
-      <div class="actions">
-      </div>
-    </div>
     <div class="left-content">
       <ul class="action-list">
         <li class="item">
@@ -68,8 +64,8 @@
   <div class="page-content">
     <div class="header">INBOX</div>
     <div class="tasks-wrapper">
+      <div class="task">
         {{#each notes}}
-       <div class="task">
         <li>
                 <span class="label-text">{{title}}</span>
                        <span class="tag progress">{{diadesemana}} {{mensaje}}</span>
@@ -114,6 +110,6 @@
     
     </form>
 </div>
-      </div>
   </div>
+</div>
 </div>
