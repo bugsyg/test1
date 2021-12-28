@@ -1,5 +1,4 @@
 <div>
-    <h2 id="HOY">INBOX</h2>
     {{#if error }}
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
     {{error}}
@@ -70,7 +69,7 @@
     <div class="header">INBOX</div>
     <div class="tasks-wrapper">
         {{#each notes}}
-      <div class="task">
+       <div class="task">
         <li>
                 <span class="label-text">{{title}}</span>
                        <span class="tag progress">{{diadesemana}} {{mensaje}}</span>
@@ -86,10 +85,9 @@
     </div>
     {{/each}}
   </div>
+  </div>
   <div class="right-bar">
-    <div class="header">Schedule</div>
     <div class="right-content">
-         <div>
     <h3>Añadir Tarea</h3>
     <form action="/notes/new-note" method="POST" id="nueva">
     <input type="text" id="input" name="title" required="true" placeholder="Escribe Aquí tu Tarea" />
