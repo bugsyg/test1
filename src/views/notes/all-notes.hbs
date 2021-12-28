@@ -1,5 +1,4 @@
 <div>
-
     <h2 id="HOY">INBOX</h2>
     {{#if error }}
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -9,7 +8,6 @@
     </button>
      </div>
     {{/if}}
-
    {{#each errors}}
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     {{text}}
@@ -18,9 +16,80 @@
     </button>
     </div>
    {{/each}}
-
- <div>
-
+</div>
+<div class="task-manager">
+  <div class="left-bar">
+    <div class="upper-part">
+      <div class="actions">
+      </div>
+    </div>
+    <div class="left-content">
+      <ul class="action-list">
+        <li class="item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-inbox"
+            viewBox="0 0 24 24">
+            <path d="M22 12h-6l-2 3h-4l-2-3H2" />
+            <path
+              d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+          </svg>
+          <a href="/notes">INBOX</a>
+        </li>
+        <li class="item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-star">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          <a href="/notes/hoy">HOY</a>
+        </li>
+        <li class="item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-calendar"
+            viewBox="0 0 24 24">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+            <path d="M16 2v4M8 2v4m-5 4h18" />
+          </svg>
+          <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
+        </li>
+        <li class="item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-hash">
+            <line x1="4" y1="9" x2="20" y2="9" />
+            <line x1="4" y1="15" x2="20" y2="15" />
+            <line x1="10" y1="3" x2="8" y2="21" />
+            <line x1="16" y1="3" x2="14" y2="21" /></svg>
+          <a href="/reides">MODO REIDES</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="header">INBOX</div>
+    <div class="tasks-wrapper">
+        {{#each notes}}
+      <div class="task">
+        <li>
+                <span class="label-text">{{title}}</span>
+                       <span class="tag progress">{{diadesemana}} {{mensaje}}</span>
+            <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="task-item" name="task"  id="eliminar">o</button>
+            </form>
+        </li>
+    </ul>
+    {{else}}
+    <div>
+        <p>No hay Tareas</p>
+    </div>
+    {{/each}}
+  </div>
+  <div class="right-bar">
+    <div class="header">Schedule</div>
+    <div class="right-content">
+         <div>
     <h3>Añadir Tarea</h3>
     <form action="/notes/new-note" method="POST" id="nueva">
     <input type="text" id="input" name="title" required="true" placeholder="Escribe Aquí tu Tarea" />
@@ -46,29 +115,6 @@
     
     </form>
 </div>
-    
-    
-    <a href="/notes">INBOX</a>
-    <a href="/notes/hoy">HOY</a>
-    <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
-    <a href="/reides">MODO REIDES</a>
-
-    {{#each notes}}
-
-    
-    <ul id="Tareas">
-        <li>
-                <h4>{{title}}</h4>
-                       <p class="text-muted">{{diadesemana}} {{mensaje}}</p>
-            <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-                <button type="submit" id="eliminar">o</button>
-            </form>
-        </li>
-    </ul>
-    {{else}}
-    <div>
-        <p>No hay Tareas</p>
-    </div>
-    {{/each}}
+      </div>
+  </div>
 </div>
