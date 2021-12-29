@@ -80,6 +80,10 @@ button {
   position: relative;
   top: 4px;
 }
+.hoy{
+  position: relative;
+  left: 2px;
+}
 .item {
   color: var(--main-color);
   margin-bottom: 32px;
@@ -216,7 +220,7 @@ button {
     width: 150%;
 }
 .page-content {
-  width: 500px;
+  width: 800px;
   display: flex;
   flex-direction: column;
   flex: 1;
