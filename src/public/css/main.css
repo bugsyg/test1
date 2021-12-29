@@ -1,4 +1,5 @@
 * {
+  overflow:hidden;
   box-sizing: border-box;
   outline: none;
 }
@@ -71,6 +72,9 @@ button {
 }
 .left-content {
   padding: 40px;
+}
+.a{
+  font-size: 24px;
 }
 .item {
   color: var(--main-color);
@@ -273,8 +277,8 @@ label .label-text {
 label .label-text:before {
   content: "";
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
   border: 1px solid #ddd;
   border-radius: 2px;
   left: -24px;
