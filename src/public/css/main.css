@@ -218,6 +218,9 @@ button {
     justify-content: flex-start;
     margin-bottom: 8px;
 }
+.margen{
+  border-bottom: 1px solid black;
+}
 .page-content {
   width: 800px;
   display: flex;
