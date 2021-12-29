@@ -67,12 +67,12 @@
       <div class="task">
         {{#each notes}}
         <li class="li">
-                <span class="label-text">{{title}}</span>
-                       <span class="mensaje">{{diadesemana}} {{mensaje}}</span>
-            <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+          <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit" class="eliminar" name="task"  id="eliminar">o</button>
             </form>
+                <span class="label-text">{{title}}</span>
+                       <span class="mensaje">{{diadesemana}} {{mensaje}}</span>
         </li>
     </ul>
     {{else}}
