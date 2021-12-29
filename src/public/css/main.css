@@ -219,8 +219,13 @@ button {
     margin-bottom: 8px;
 }
 .margen{
-  border-bottom: 1px solid Ha19c9757;
+  border-bottom: 1px solid #a19c9721;
   width: 100%;
+}
+.mensaje{
+  color: #b8b2ac;
+  font-size: 14px;
+  margin-left: 16px;
 }
 .page-content {
   width: 800px;
