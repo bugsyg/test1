@@ -215,8 +215,8 @@ button {
 .li{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 150%;
+    justify-content: flex-start;
+    margin-bottom: 8px;
 }
 .page-content {
   width: 800px;
@@ -226,8 +226,8 @@ button {
   padding: 10px 20px 0 20px;
 }
 .page-content .header {
-  font-size: 26px;
-  color: var(--main-color);
+  font-size: 30px;
+  color: #171615;
   margin-top: 30px;
 }
 .content-categories {
@@ -270,7 +270,7 @@ button {
   margin-bottom: 16px;
   padding-left: 30px;
   color: var(--task-color);
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 500;
 }
 .task label {
