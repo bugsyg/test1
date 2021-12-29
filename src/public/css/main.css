@@ -54,7 +54,7 @@ button {
 .task-manager {
   margin-top: 4%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   max-width: 1200px;
   height: 90vh;
@@ -165,9 +165,6 @@ button {
   cursor: pointer;
   box-shadow: 2px 2px 4px 0px rgba(235, 235, 235, 1);
 }
-.task-box:hover {
-  transform: scale(1.02);
-}
 .time {
   margin-bottom: 6px;
   opacity: 0.4;
@@ -224,7 +221,7 @@ button {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 40px 20px 0 20px;
+  padding: 10px 20px 0 20px;
 }
 .page-content .header {
   font-size: 26px;
@@ -273,9 +270,6 @@ button {
   color: var(--task-color);
   font-size: 13px;
   font-weight: 500;
-}
-.task:hover {
-  transform: translatex(2px);
 }
 .task label {
   cursor: pointer;
