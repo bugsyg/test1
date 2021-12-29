@@ -65,7 +65,7 @@ button {
   overflow: hidden;
 }
 .left-bar {
-  background-color: var(--bg-color);
+  background-color: #d8dfe64f;
   width: 230px;
   border-right: 1px solid #e3e7f7;
   position: relative;
@@ -82,8 +82,8 @@ button {
   font-weight: 500;
 }
 .item svg {
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
   color: currentcolor;
   margin-right: 10px;
 }
@@ -128,8 +128,8 @@ button {
   align-self: flex-end;
 }
 .top-part svg {
-  width: 14px;
-  height: 14px;
+  width: 24;
+  height: 24;
   color: var(--main-color);
   margin-right: 14px;
 }
