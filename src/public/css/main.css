@@ -71,14 +71,18 @@ button {
   position: relative;
 }
 .left-content {
-  padding: 40px;
+  padding: 60px 40px 40px 40px;
 }
 .a{
   font-size: 18px;
 }
+.cualquier{
+  position: relative;
+  top: 4px;
+}
 .item {
   color: var(--main-color);
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   font-weight: 500;
 }
 .item svg {
