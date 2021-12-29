@@ -67,8 +67,8 @@
       <div class="task">
         {{#each notes}}
         <li class="li">
-          <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
-                <input class="task-item" name="task" type="checkbox" id="item-3" onChange="this.form.submit()">
+          <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST" id="formName">
+                <input name="task" type="checkbox" id="item-3" onchange="document.getElementById('formName').submit()"/>
             </form> 
               <div class="margen">
                 <span class="label-text">{{title}}</span>
