@@ -369,14 +369,14 @@ label .label-text:before {
   animation: 2s opacity;
 }
 .checkbox input:checked ~ .toggle {
-  border-width: 14px;
+  border-width: 1px;
   background: #0ff;
   box-shadow: 2px 2px 4px 0 rgba(255, 255, 255, 0.2), inset 2px 2px 4px 0 rgba(0, 0, 0, 0);
 }
 .toggle {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 1px;
+  height: 1px;
   background: transparent;
   z-index: 5;
   display: block;
