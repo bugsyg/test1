@@ -87,9 +87,7 @@ button {
   color: currentcolor;
   margin-right: 10px;
 }
-.feather-calendar{
-  width: 34.3px;
-}
+
 .category-list {
   margin-top: 50px;
 }
@@ -350,4 +348,7 @@ label .label-text:before {
   .category {
     padding: 20px;
  }
+}
+.feather-calendar{
+  width: 34.3px;
 }
