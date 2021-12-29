@@ -362,3 +362,49 @@ label .label-text:before {
     padding: 20px;
  }
 }
+.checkbox {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 180px;
+  left: 180px;
+}
+.checkbox input {
+  display: none;
+}
+.checkbox input:checked ~ .line {
+  animation: 2s opacity;
+}
+.checkbox input:checked ~ .toggle {
+  border-width: 14px;
+  background: #0ff;
+  box-shadow: 2px 2px 4px 0 rgba(255, 255, 255, 0.2), inset 2px 2px 4px 0 rgba(0, 0, 0, 0);
+}
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  z-index: 5;
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid #787878;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.8s ease-in-out;
+  box-shadow: 2px 2px 4px 0 rgba(255, 255, 255, 0.2), inset 2px 2px 4px 0 rgba(255, 255, 255, 0.2);
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    background: transparent;
+ }
+  25% {
+    opacity: 0;
+ }
+  100% {
+    opacity: 1;
+    background: linear-gradient(to left, transparent, transparent, #0ff);
+ }
+}
+
