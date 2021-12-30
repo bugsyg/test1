@@ -277,7 +277,7 @@ button {
   justify-content: space-between;
   position: relative;
   margin-bottom: 16px;
-  padding-left: 30px;
+  padding-left: 40px;
   color: var(--task-color);
   font-size: 20px;
   font-weight: 500;
@@ -369,6 +369,8 @@ label .label-text:before {
   padding-right: 0;
   padding-bottom: 0;
   margin: 0;
+  width: 30px;
+    height: 30px;
 }
 .checkbox input:checked ~ .line {
   animation: 2s opacity;
@@ -380,8 +382,8 @@ label .label-text:before {
 }
 .toggle {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   padding: 0;
    margin: 0;
   background: transparent;
