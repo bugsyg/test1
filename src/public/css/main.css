@@ -431,3 +431,65 @@ label .label-text:before {
     border-bottom: 2px solid #bebed2;
     font-size: 13px;
 }
+main{
+  width: 90%;
+  margin: auto;
+}
+
+.contenedor-col{
+  width: 45%;
+  display: inline-block;
+  position: relative;
+}
+.contenedor-col h1 {
+font-family: 'DM Serif Display', serif;
+font-size: 3rem;
+}
+.contenedor-col p{
+font-family: 'Acme', sans-serif;
+font-size: 3vh;
+}
+#contenedor-descrip {
+  bottom: 3vh;
+}
+#contenedor-img{
+  top: 1vh;
+}
+#contenedor-img img {
+  width: 100%;
+}
+.botones{
+  margin: auto;
+  width: 90%;
+}
+#inicio-sesion {
+padding: 1% 5%;
+margin: 5% 3%;
+background-color: rgba(255, 208, 0, 0.993);
+color: rgb(255, 255, 255);
+border: 3px solid rgba(255, 208, 0, 0.993);
+font-size: 1.5vw;
+font-weight: 900;
+}
+.botones #registro {
+padding: 1% 5%;
+margin: 5% 3%;
+font-size: 1.5vw;
+color: rgb(255, 255, 255);
+border: 3px solid rgb(255, 255, 255);
+font-weight: 900;
+}
+
+@media (max-width: 900px){
+
+}
+
+@media (max-width: 600px){
+  #contenedor-img{
+      display: none;
+  }
+  #contenedor-descrip {
+      width: 90%;
+  }
+
+}
