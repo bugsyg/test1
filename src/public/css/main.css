@@ -377,7 +377,7 @@ label .label-text:before {
 }
 .checkbox input:checked ~ .toggle {
   border-width: 1px;
-  background: #0ff;
+  background: #e6dfd8;
   box-shadow: 2px 2px 4px 0 rgba(255, 255, 255, 0.2), inset 2px 2px 4px 0 rgba(0, 0, 0, 0);
 }
 .toggle {
@@ -406,7 +406,7 @@ label .label-text:before {
  }
   100% {
     opacity: 1;
-    background: linear-gradient(to left, transparent, transparent, #0ff);
+    background: linear-gradient(to left, transparent, transparent, #e6dfd8);
  }
 }
 
