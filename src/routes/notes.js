@@ -235,7 +235,9 @@ router.post('/notes/new-note/hoy', isAuthenticated, async (req,res)=>{
     var hrr = horario.split(":");
     var horas = parseInt(hrr[0]);
     var minutos = parseInt(hrr[1]);
-
+    if(caracter !== "Ejercicio" &&caracter !== "Alimentacion" &&caracter !== "Ocio" ){
+        caracter = "Estudio"
+    }
     if(!title){
         errors.push({text: 'escribir titulo'})
     }

@@ -436,9 +436,15 @@ label .label-text:before {
 .submit:hover{background:#8a8581;color:#fff}
 summary{
   cursor: pointer;
+  color: #b45241;
 }
+.principal{
+  width: 90vw;
+  margin: auto;
+}
+
 .contenedor-col{
-  width: 45%;
+  width: 47%;
   display: inline-block;
   position: relative;
 }
@@ -452,12 +458,16 @@ font-size: 3vh;
 }
 #contenedor-descrip {
   bottom: 3vh;
+  width: 40%;
 }
 #contenedor-img{
-  top: 1vh;
+top: 1vh;
+left: 8vw;  
 }
 #contenedor-img img {
+  display: inline;
   width: 100%;
+  text-align: center;
 }
 .botones{
   margin: auto;
@@ -472,7 +482,7 @@ border: 3px solid rgba(255, 208, 0, 0.993);
 font-size: 1.5vw;
 font-weight: 900;
 }
-.botones #registro {
+#registro {
 padding: 1% 5%;
 margin: 5% 3%;
 font-size: 1.5vw;
@@ -492,5 +502,19 @@ font-weight: 900;
   #contenedor-descrip {
       width: 90%;
   }
+  .botones{
+    width: 80%;
+}
+  #inicio-sesion {
+    font-size: 6vw;
+    display: block;
+    text-align: center;
 
+}
+#registro {
+    font-size: 6vw;
+    display: block;
+    text-align: center;
+
+  }
 }
