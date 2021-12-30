@@ -431,14 +431,12 @@ label .label-text:before {
     border-bottom: 2px solid #bebed2;
     font-size: 13px;
 }
-main{
-  width: 90%;
-  margin: auto;
-}
 .submit{
   float:right;padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px solid #78788c;background:0;color:#5a5a6e;cursor:pointer;transition:all .3s}
-.submit:hover{background:#78788c;color:#fff}
-
+.submit:hover{background:#8a8581;color:#fff}
+summary{
+  cursor: pointer;
+}
 .contenedor-col{
   width: 45%;
   display: inline-block;
