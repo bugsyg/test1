@@ -43,7 +43,7 @@ body {
   background-blend-mode: overlay, multiply, color, normal;
 }
 .type{
-  font-size: 18px;
+  font-size: 16px;
   padding-top: 5px;
 }
 .h2{
@@ -223,7 +223,7 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 }
 .margen{
   border-bottom: 1px solid #a19c9721;
@@ -429,5 +429,5 @@ label .label-text:before {
     font-family: 'Montserrat',sans-serif;
     transition: all .3s;
     border-bottom: 2px solid #bebed2;
-    font-size: 12px;
+    font-size: 13px;
 }
