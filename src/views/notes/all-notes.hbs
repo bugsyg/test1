@@ -91,18 +91,18 @@
     <div class="right-content">
       <form class="form" action="/notes/new-note" method="POST" id="nueva">
   <h2>Añadir Tarea</h2>
-  <p type="Tarea"><input id="input" name="title" required="true" placeholder="Escribe aquí tu tarea" class="añadir"></input></p>
+  <p type="">Tarea<input id="input" name="title" required="true" placeholder="Escribe aquí tu tarea" class="añadir"></input></p>
   <details> <summary> ver mas </summary>
-  <p type="Fecha"><input type="date" name="dia" class="añadir"></input></p>
-  <p type="Horario"><input type="time" name="horario" class="añadir"></input></p>
-<p type="Duración (en minutos)"><input type="number" min="05" max="600" value="30" name="duracion" class="añadir"></input></p>
-<p type="Caracter"><input type="text" onkeypress="return false;" list="car" name="caracter" class="añadir"><datalist id="car">
+  <p>Fecha<input type="date" name="dia" class="añadir"></input></p>
+  <p type="">Horario<input type="time" name="horario" class="añadir"></input></p>
+<p type="">Duración (en minutos)<input type="number" min="05" max="600" value="30" name="duracion" class="añadir"></input></p>
+<p type="">Caracter<input type="text" onkeypress="return false;" value="Estudio/Trabajo" list="car" name="caracter" class="añadir"><datalist id="car">
     <option value="Estudio">Estudio/Trabajo</option>
     <option value="Ejercicio">Ejercicio</option>
     <option value="Alimentacion">Alimentacion</option>
     <option value="Ocio">Ocio</option>
     </datalist></input></p>
-<p type="Flexibilidad"><input type="text" onkeypress="return false;" list="Flex" name="fijo" class="añadir"><datalist id="Flex">
+<p type="">Flexibilidad<input type="text" onkeypress="return false;" list="Flex" name="fijo" class="añadir"><datalist id="Flex">
     <option value="Si">Tiene horario fijo</option>
     <option value="No">Tiene horario fijo</option>
     </datalist></input></p> </details>
