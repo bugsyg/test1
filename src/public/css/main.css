@@ -365,6 +365,11 @@ label .label-text:before {
 .checkbox input {
   display: none;
 }
+.checkbox{
+  padding-right: 0;
+  padding-bottom: 0;
+  margin: 0;
+}
 .checkbox input:checked ~ .line {
   animation: 2s opacity;
 }
@@ -375,8 +380,10 @@ label .label-text:before {
 }
 .toggle {
   position: relative;
-  width: 1px;
-  height: 1px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+   margin: 0;
   background: transparent;
   z-index: 5;
   display: block;
