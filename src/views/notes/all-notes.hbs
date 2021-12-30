@@ -69,7 +69,7 @@
         <li class="li">
           <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
           <div class="checkbox">
-			      <input type="checkbox" id="cb-1" onchange="this.form.submit()"></input>
+			      <input type="checkbox" onchange="this.form.submit()"></input>
 			         <label for="cb-1" class="toggle" style="padding: 0; min-height: 15px;"></label>
 	          	</div>
             </form> 
@@ -89,30 +89,23 @@
   </div>
   <div class="right-bar">
     <div class="right-content">
-    <h3>Añadir Tarea</h3>
-    <form action="/notes/new-note" method="POST" id="nueva">
-    <input type="text" id="input" name="title" required="true" placeholder="Escribe Aquí tu Tarea" />
-    <input type="date" name="dia"><label for="">Duración (en minutos):</label>
-    <input type="number" min="05" max="600" name="duracion" value="30"/>
-    <p>Tiene Horario Fijo?</p>
-        <input type="radio" id="Si" name="fijo" value="Si">
-        <label for="Si">Si</label><br>
-        <input type="radio" id="No" name="fijo" value="No" checked="checked">
-        <label for="No">No</label> <br>
-    <h4>Caracter:</h2>
-   <select id="cars" name="caracter">
+      <form class="form" action="/notes/new-note" method="POST" id="nueva">
+  <h2>Añandir Tarea</h2>
+  <p type="Tarea"><input id="input" name="title" required="true" placeholder="Escribe aquí tu tarea"></input></p>
+  <p type="Fecha"><input type="date" name="dia"></input></p>
+  <p type="Horario"><input type="time" name="horario"></input></p>
+<p type="Duración (en minutos)"><input type="number" min="05" max="600" value="30" name="duracion"></input></p>
+<p type="Caracter"><input type="text" onkeypress="return false;" list="car" name="caracter" ><datalist id="car">
     <option value="Estudio">Estudio/Trabajo</option>
     <option value="Ejercicio">Ejercicio</option>
     <option value="Alimentacion">Alimentacion</option>
     <option value="Ocio">Ocio</option>
-    </select>
-    <label for="">Horario:</label>
-    <input type="time" name="horario"/>
- 
-
-    <button type="submit" id="submit">Agregar Tarea</button>
-    
-    </form>
+    </datalist></input></p>
+<p type="Flexibilidad"><input type="text" onkeypress="return false;" list="Flex" name="fijo"><datalist id="Flex">
+    <option value="Si">Tiene horario fijo</option>
+    <option value="No">Tiene horario fijo</option>
+    </datalist></input></p>
+  <button type="submit" id="submit">Agregar Tarea</button>
 </div>
   </div>
 </div>
