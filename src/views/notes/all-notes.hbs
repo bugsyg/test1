@@ -65,12 +65,13 @@
     <div class="header">Todo</div>
     <div class="tasks-wrapper">
       <div class="task">
-        {{#each notes}}
+        
         <li class="li">
           <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+          {{#each notes}}
           <div class="checkbox">
-			      <input type="checkbox" onchange="this.form.submit()"></input>
-			         <label for="cb-1" class="toggle" style="padding: 0; min-height: 15px;"></label>
+			      <input type="checkbox" onchange="this.form.submit()" id="{{_id}}"></input>
+			         <label for="{{_id}}" class="toggle" style="padding: 0; min-height: 15px;"></label>
 	          	</div>
             </form> 
               <div class="margen">
