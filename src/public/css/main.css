@@ -42,6 +42,10 @@ body {
   background-image: linear-gradient(21deg, rgb(230 223 216 / 37%) 68%, rgb(230 223 216 / 50%) 163%), linear-gradient(163deg, rgb(230 223 216 / 8%) 86%, rgb(230 223 216 / 50%) 40%), linear-gradient(30deg, rgb(230 223 216 / 62%) 22%, rgb(230 223 216 / 50%) 169%), linear-gradient(48deg, rgb(230 223 216 / 73%) 64%, rgb(230 223 216 / 50%) 43%);
   background-blend-mode: overlay, multiply, color, normal;
 }
+.type{
+  font-size: 18px;
+  padding-top: 5px;
+}
 .h2{
   font-family: 'Playfair Display', serif;
 }
