@@ -24,15 +24,12 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Inicio</a></li>
         </ul>
-        <ul class="nav navbar-nav derecha" style="float: right">
-          <form action="/users/signin" method="POST" class="form">
-          <details><summary><li><p>Iniciar Sesión</p></li></summary>
-            <p class="type">Email<input type="email" name="email" placeholder="Email" value="{{email}}" class="form-control" required="required" data-error="Lastname is required."></input></p>
-           <p class="type">Contraseña<input type="password" name="password" placeholder="Contraseña" value="{{password}}" class="form-control" required="required" data-error="Valid email is required."></input></p>
-           <button type="submit" id="submit" class="submit">Iniciar Sesión</button></form></details></form>
-          <details> <summary> <li><p class="nab">Registrarse</p></li></summary></details>
+        <ul class="nav navbar-nav derecha">
+          <li><a href="/users/signin">Iniciar Sesión</a></li>
+          <li><a class="nab" href="/users/signup">Registrarse</a></li>
         </ul>
       </div>
       {{/if}}
+      <!--/.nav-collapse -->
     </div>
   </div>
