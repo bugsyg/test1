@@ -484,7 +484,8 @@ left: 8vw;
 }
 .botones{
   margin: auto;
-  width: 90%;
+  width: 95%;
+  padding: 3%;
 }
 #inicio-sesion {
 padding: 1% 5%;
@@ -499,7 +500,8 @@ font-weight: 900;
 padding: 1% 5%;
 margin: 5% 3%;
 font-size: 1.5vw;
-color: rgb(255, 255, 255);
+background-color: #f2ece7;
+color: #6c6c6cab;
 border: 3px solid rgb(255, 255, 255);
 font-weight: 900;
 }
