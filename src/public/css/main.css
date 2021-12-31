@@ -349,7 +349,11 @@ label .label-text:before {
   .task-manager {
     flex-direction: column;
     overflow-y: auto;
-    height: 76vh;
+    height: 74vh;
+ }
+
+ .page-content .header{
+  margin-top: 0px;
  }
   .right-bar, .page-content {
     width: 100%;
@@ -357,14 +361,22 @@ label .label-text:before {
  }
   .tasks-wrapper {
     height: auto;
+    padding: 0px;
+    
+ }
+ .right-content{
+     padding: 0px 30px;
  }
 }
 @media screen and (max-width: 520px) {
   .page-content {
     padding: 40px 10px 0 10px;
  }
-  .right-content {
-    padding: 10px 16px;
+ .right-content{
+  padding: 0px 30px;
+}
+.page-content .header{
+  margin-top: 0px;
  }
   .category {
     padding: 20px;
@@ -517,9 +529,5 @@ font-weight: 900;
     display: block;
     text-align: center;
 
-  }
-
-  .derecha{
-    float: none;
   }
 }
