@@ -5,7 +5,7 @@ const { isAuthenticated } = require('../helpers/auth')
 const moment= require('moment') 
 
 router.post('/notes/new-note', isAuthenticated, async (req,res)=>{
-    const {title, dia, date, fijo, duracion, caracter, horario}=req.body
+    var {title, dia, date, fijo, duracion, caracter, horario}=req.body
     const errors= [];
     const tareas = await Note.find({user: req.user.id}).lean().sort({horaInicio:'desc'});
     var recomendado= [];
