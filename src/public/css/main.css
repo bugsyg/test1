@@ -517,4 +517,7 @@ font-weight: 900;
     text-align: center;
 
   }
+  .derecha{
+    float: none;
+  }
 }
