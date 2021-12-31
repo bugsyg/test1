@@ -235,7 +235,7 @@ button {
   margin-left: 16px;
 }
 .page-content {
-  width: 800px;
+  width: 40vw;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -517,6 +517,7 @@ font-weight: 900;
     text-align: center;
 
   }
+
   .derecha{
     float: none;
   }
