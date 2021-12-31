@@ -460,14 +460,16 @@ summary{
   width: 47%;
   display: inline-block;
   position: relative;
+
 }
 .contenedor-col h1 {
 font-family: 'DM Serif Display', serif;
-font-size: 3rem;
+font-size: 5rem;
 }
 .contenedor-col p{
 font-family: 'Acme', sans-serif;
 font-size: 3vh;
+color: #6c6c6c94;
 }
 #contenedor-descrip {
   bottom: 3vh;
