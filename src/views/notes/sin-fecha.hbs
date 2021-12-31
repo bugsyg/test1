@@ -1,7 +1,5 @@
 <div>
-   
-    <h2 id="HOY">En Cualquier Momento</h2>
-     {{#if error }}
+    {{#if error }}
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
     {{error}}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -9,7 +7,6 @@
     </button>
      </div>
     {{/if}}
-
    {{#each errors}}
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     {{text}}
@@ -19,27 +16,67 @@
     </div>
    {{/each}}
 
- <div>
-
-    <h3>Añadir Tarea</h3>
-    <form action="/notes/new-note/cualquier" method="POST" id="nueva">
-    <input type="text" id="input" name="title" required="true" placeholder="Escribe Aquí tu Tarea" />
-    <button type="submit" id="submit">Agregar Tarea</button>
-    
-    </form>
-</div>
-    <a href="/notes">INBOX</a>
-    <a href="/notes/hoy">HOY</a>
-    <a href="/notes/cualquier">EN CUALQUIER MOMENTO</a>
-        <a href="/reides">MODO REIDES</a>
-    {{#each notes}}
-    <ul id="Tareas">
-        <li>
-                <h4>{{title}}</h4>
-            <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-                <button type="submit" id="eliminar">o</button>
-            </form>
+<div class="task-manager">
+  <div class="left-bar">
+    <div class="left-content">
+      <ul class="action-list">
+        <li class="item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-inbox"
+            viewBox="0 0 24 24">
+            <path d="M22 12h-6l-2 3h-4l-2-3H2" />
+            <path
+              d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+          </svg>
+          <a href="/notes"  class="a">Todo</a>
+        </li>
+        <li class="item" style="margin-bottom: 26px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-star">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          <a href="/notes/hoy"  class="a hoy">Hoy</a>
+        </li>
+        <li class="item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-calendar"
+            viewBox="0 0 24 24" style="width: 34.3px;">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+            <path d="M16 2v4M8 2v4m-5 4h18" />
+          </svg>
+          <a href="/notes/cualquier" class="a cualquier">Cualquier Momento</a>
+        </li>
+        <li class="item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-hash" >
+            <line x1="4" y1="9" x2="20" y2="9" />
+            <line x1="4" y1="15" x2="20" y2="15" />
+            <line x1="10" y1="3" x2="8" y2="21" />
+            <line x1="16" y1="3" x2="14" y2="21" /></svg>
+          <a href="/reides"  class="a">Modo Reides</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="header">En cualquier momento</div>
+    <div class="tasks-wrapper">
+      <div class="task">
+        {{#each notes}}
+        <li class="li">
+          <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+          <div class="checkbox">
+			      <input type="checkbox" onchange="this.form.submit()" id="{{_id}}"></input>
+			         <label for="{{_id}}" class="toggle" style="padding: 0; min-height: 15px;"></label>
+	          	</div>
+            </form> 
+              <div class="margen">
+                <span class="label-text">{{title}}</span>
+                       <span class="mensaje">{{diadesemana}} {{mensaje}}</span>
+                       </div>
         </li>
     </ul>
     {{else}}
@@ -47,4 +84,30 @@
         <p>No hay Tareas</p>
     </div>
     {{/each}}
+  </div>
+  </div>
+  </div>
+  <div class="right-bar">
+    <div class="right-content">
+      <form class="form" action="/notes/new-note" method="POST" id="nueva">
+  <h2>Añadir Tarea</h2>
+  <p class="type">Tarea<input id="input" name="title" required="true" placeholder="Escribe aquí tu tarea" class="añadir"></input></p>
+  <details> <summary> Sé más específico </summary>
+  <p class="type">Fecha<input type="date" name="dia" class="añadir"></input></p>
+  <p class="type">Horario<input type="time" name="horario" class="añadir"></input></p>
+<p class="type">Duración (en minutos)<input type="number" min="05" max="600" value="30" name="duracion" class="añadir"></input></p>
+<p class="type">Caracter<input type="text" onkeypress="return false;" list="car" name="caracter" class="añadir"><datalist id="car">
+    <option value="Estudio/Trabajo">Estudio/Trabajo</option>
+    <option value="Ejercicio">Ejercicio</option>
+    <option value="Alimentacion">Alimentacion</option>
+    <option value="Ocio">Ocio</option>
+    </datalist></input></p>
+<p class="type">Flexibilidad<input type="text" onkeypress="return false;" list="Flex" name="fijo" class="añadir"><datalist id="Flex">
+    <option value="Si">Tiene horario fijo</option>
+    <option value="No">Tiene horario fijo</option>
+    </datalist></input></p> </details>
+  <button type="submit" id="submit" class="submit">Agregar Tarea</button>
+</div>
+  </div>
+</div>
 </div>
