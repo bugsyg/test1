@@ -489,9 +489,9 @@ left: 8vw;
 #inicio-sesion {
 padding: 1% 5%;
 margin: 5% 3%;
-background-color: rgba(255, 208, 0, 0.993);
+background-color: #efc337;
 color: rgb(255, 255, 255);
-border: 3px solid rgba(255, 208, 0, 0.993);
+border: 3px solid #cfaa31;
 font-size: 1.5vw;
 font-weight: 900;
 }
